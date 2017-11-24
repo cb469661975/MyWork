@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:padding="15dp"
+    android:layout_gravity="center">
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="已经到底啦，"
+        android:layout_height="wrap_content">
+    </TextView>
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:id="@+id/to_list_top_textview"
+        android:text="返回顶部"
+        android:layout_height="wrap_content">
+    </TextView>
+    <TextView
+        android:id="@+id/tv_again_select"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="重新挑选"
+        android:layout_height="wrap_content">
+    </TextView>
+</LinearLayout>

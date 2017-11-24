@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bibi_dimen_33" >33dp</dimen>
+    <dimen name="bibi_dimen_15">15dp</dimen>
+    <dimen name="bibi_dimen_30">30dp</dimen>
+    <dimen name="bibi_dimen_100">100dp</dimen>
+</resources>

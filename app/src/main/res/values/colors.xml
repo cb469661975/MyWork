@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Test Resource -->
+    <color name="bibi_colorPrimary">@color/bibi_common_me_green</color>
+    <color name="bibi_colorPrimaryDark">@color/bibi_common_me_green_press</color>
+    <color name="bibi_colorAccent">@color/bibi_common_me_green</color>
+
+    <color name="bibi_common_white">#ffffff</color>
+    <color name="bibi_common_white_shadow">#414141</color>
+    <color name="bibi_common_white_disabled">#e7e7e7</color>
+    <!-- For main texts -->
+    <color name="bibi_common_dark">#3d5562</color>
+    <color name="bibi_common_dark_shadow">#dedede</color>
+    <color name="bibi_common_dark_disabled">#9aa7af</color>
+    <!-- For secondary texts -->
+    <color name="bibi_common_grey">#8496a0</color>
+    <color name="bibi_common_grey_disabled">#aabbc4</color>
+    <!-- For danger cases, such as virus, file delete... -->
+    <color name="bibi_common_red">#e62f2f</color>
+    <!-- For warning cases, such as trashes... -->
+    <color name="bibi_common_yellow">#f1930d</color>
+    <!-- For safe cases -->
+    <color name="bibi_common_green">#60990c</color>
+    <!-- For suggestions -->
+    <color name="bibi_common_blue">#29b6f6</color>
+    <!-- For title back color -->
+    <color name="bibi_common_title_grey">#333333</color>
+    <color name="bibi_common_title_grey_disable">#B4333333</color>
+
+    <color name="bibi_common_me_green">@color/bibi_andes_highlight</color>
+    <color name="bibi_common_me_green_press">@color/bibi_andes_highlight_press</color>
+
+    <color name="bibi_common_background">#F8F8F8</color>
+    <!-- only for function setting activity -->
+    <color name="bibi_common_background_B">#F0F0F0</color>
+
+    <color name="bibi_common_solid_button_B">#FF5152</color>
+
+
+    <color name="bibi_common_bar_backgroundcolor">#68bf4a</color>
+    <color name="bibi_slogan_color">#40CB18</color>
+    <color name="bibi_tab_indicator_text_selected">#ffffff</color>
+    <color name="bibi_tab_indicator_text_unselected">#aac5d7</color>
+    <color name="bibi_page_viewer_margin_color">#007800</color>
+
+    <color name="bibi_online_chat_background">#8495ff</color>
+    <color name="bibi_group_chat_background">#ffca3c</color>
+    <color name="bibi_setting_background">#b99cf2</color>
+
+    <color name="bibi_default_contact_icon_purple">#9575cd</color>
+    <color name="bibi_default_contact_icon_orange">#ffb74d</color>
+    <color name="bibi_default_contact_icon_deongaree">#7986cb</color>
+    <color name="bibi_default_contact_icon_blue">#4dd0e1</color>
+
+    <color name="bibi_for_more_emoji_solid">#3329b6f6</color>
+    <color name="bibi_for_more_emoji">#03A9F4</color>
+    <color name="bibi_andes_highlight">@color/bibi_light_blue_400</color>
+    <color name="bibi_andes_highlight_h">@color/bibi_light_blue_500</color>
+    <color name="bibi_andes_highlight_quater">#3368bf4a</color>
+    <color name="bibi_andes_highlight_half_transparent">#8868bf4a</color>
+    <color name="bibi_andes_pressed_color">#e6e6e6</color>
+    <color name="bibi_tabbar_btn_text_color_highlight">#52C594</color>
+    <color name="bibi_tabbar_btn_text_color_normal">#555555</color>
+    <color name="bibi_tab_btn_shadow_bg">#12000000</color>
+    <drawable name="bibi_transparent">@color/bibi_black_transparency_0</drawable>
+    <drawable name="bibi_emoji_item_selected">#e6e6e6</drawable>
+    <color name="bibi_photo_border_color">#4B888888</color>
+    <drawable name="bibi_main_background">#f8f8f8</drawable>
+    <color name="bibi_main_background">#f8f8f8</color>
+    <color name="bibi_new_main_background">#ededed</color>
+    <color name="bibi_default_light_gray_color">#f2f2f2</color>
+    <color name="bibi_normal_orange_color">#ff9700</color>
+
+    <color name="bibi_playback_border_line_progress_color">#4dd0e1</color>
+    <color name="bibi_playback_border_line_base_color">#20000000</color>
+    <color name="bibi_playback_border_line_view_color">@color/bibi_application_bg</color>
+    <color name="bibi_playback_control_shadow_color">#40000000</color>
+    <color name="bibi_video_bar_button_shadow_color">@color/bibi_black</color>
+
+    <color name="bibi_contact_list_item_main_color">@color/bibi_black_transparency_850</color>
+    <color name="bibi_contact_list_pinned_head_text_color">@color/bibi_black_transparency_400
+    </color>
+    <color name="bibi_contact_list_highlight">@color/bibi_common_me_green</color>
+    <color name="bibi_settings_list_icon_color">#4d000000</color>
+    <drawable name="bibi_contact_list_drawable_highlight">#68bf4a</drawable>
+    <color name="bibi_contact_list_normal">#60000000</color>
+    <color name="bibi_contact_list_popup_text_color">@color/bibi_white</color>
+    <color name="bibi_search_list_item_highlight">#1397f1</color>
+
+
+    <!-- LoginActivity -->
+    <color name="bibi_login_phone_number_error">#F34235</color>
+    <color name="bibi_login_edit_text_hint">#bbbbbb</color>
+    <color name="bibi_login_edit_text_bg">#d1d1d1</color>
+    <color name="bibi_search_icon_normal">@color/bibi_black_transparency_350</color>
+    <color name="bibi_search_icon_highlight">@color/bibi_contact_list_highlight</color>
+    <color name="bibi_chat_panel_bg">#c04d4d4d</color>
+    <color name="bibi_chat_panel_init_call">#e57373</color>
+    <color name="bibi_chat_panel_speaker_btn_alter">#e57373</color>
+    <color name="bibi_chat_panel_peer_accept_call">#52c594</color>
+    <color name="bibi_chat_panel_hangup_button">#e57373</color>
+    <color name="bibi_application_bg">#fbfbfb</color>
+    <color name="bibi_contact_photo_bg">#F1F1F0</color>
+
+
+    <!-- dialog from dialer -->
+    <drawable name="bibi_dialog_shadow">@color/bibi_black_transparency_500</drawable>
+    <drawable name="bibi_dialog_container_background">#141414</drawable>
+    <color name="bibi_dialog_title_color">@color/bibi_grey_900</color>
+    <color name="bibi_dialog_main_color">@color/bibi_grey_600</color>
+    <color name="bibi_dialog_divider_color">#80999999</color>
+    <color name="bibi_dialog_alt_one_color">@color/bibi_black_transparency_450</color>
+    <color name="bibi_dialog_edit_hint_text_color">@color/bibi_black_transparency_300</color>
+    <color name="bibi_dialog_edit_text_color">@color/bibi_black_transparency_800</color>
+    <color name="bibi_dialog_edit_hint_divider_color">@color/bibi_black_transparency_300</color>
+    <color name="bibi_dialog_edit_divider_color">@color/bibi_light_blue_500</color>
+    <color name="bibi_dialog_highlight_color">@color/bibi_light_blue_500</color>
+    <color name="bibi_dialog_button_text_color_cancel">@color/bibi_grey_600</color>
+
+    <color name="bibi_avatar_online_status_border_line">#68bf4a</color>
+    <color name="bibi_chat_button_widget_bg_n">#60000000</color>
+    <color name="bibi_chat_button_widget_bg_h">#20000000</color>
+    <color name="bibi_chat_button_text_bg_n">#6a000000</color>
+    <color name="bibi_chat_button_text_bg_h">#20000000</color>
+    <color name="bibi_chat_button_hold_to_talk_hint">#24000000</color>
+    <color name="bibi_chat_button_hold_to_talk_hint_text">#4d000000</color>
+    <color name="bibi_chat_button_video_bg_n">#9B9B9B</color>
+    <color name="bibi_chat_button_video_bg_p">#889B9B9B</color>
+
+
+    <color name="bibi_call_log_status_has_connected">#68bf4a</color>
+    <color name="bibi_call_log_status_has_not_connected">#f44336</color>
+    <color name="bibi_call_log_status_ordinary_display">@color/bibi_black_transparency_300</color>
+    <color name="bibi_call_log_miss_call_red_dot">#f44336</color>
+    <!--<color name="bibi_call_log_item_press">#e6e6e6</color>-->
+    <color name="bibi_call_log_item_press">@color/bibi_grey_50</color>
+    <color name="bibi_person_logout_icon_color">#e57373</color>
+    <color name="bibi_call_log_miss_call_text_color">#f44336</color>
+
+    <color name="bibi_speaker_button_bg">#dbdbdb</color>
+    <color name="bibi_speaker_button_wave_circle_bg">#4d49cfca</color>
+    <color name="bibi_speaker_button_speaking_bg">#de68bf4a</color>
+    <color name="bibi_speaker_button_listening_ring_bg">#de68bf4a</color>
+    <color name="bibi_incoming_topbar_color_maintitle">#de000000</color>
+    <color name="bibi_incoming_topbar_color_subtitle">#de999999</color>
+    <color name="bibi_incoming_topbar_action_color">#8a000000</color>
+    <color name="bibi_incoming_topbar_split_line_color">#1f000000</color>
+    <color name="bibi_incoming_topbar_hangup_color">#ff5152</color>
+    <color name="bibi_chat_panel_group_hangup_color">@color/bibi_common_bar_backgroundcolor</color>
+    <color name="bibi_incoming_topbar_hangup_color_h">#20ff5152</color>
+    <color name="bibi_incoming_topbar_hangup_color_disabled">#42000000</color>
+    <color name="bibi_incoming_topbar_speaker_color">#68bf4a</color>
+    <color name="bibi_incoming_topbar_speaker_color_h">#2068bf4a</color>
+    <color name="bibi_incoming_topbar_group_invite_prefix">#aaaaaa</color>
+    <color name="bibi_incoming_topbar_group_invite_name">#858585</color>
+
+    <color name="bibi_digital_input_item_error">#f44336</color>
+    <color name="bibi_digital_input_item_vacant">#dbdbdb</color>
+    <color name="bibi_digital_input_item_correct">#68bf4a</color>
+    <color name="bibi_digital_input_item_pressed">@color/bibi_light_green_800</color>
+
+    <color name="bibi_login_hint_normal_color">#8a000000</color>
+    <color name="bibi_login_hint_secondary_color">#42000000</color>
+    <color name="bibi_login_hint_button_color">#68bf4a</color>
+    <color name="bibi_login_hint_error_color">#f44336</color>
+    <color name="bibi_login_hint_complete_color_n">#df000000</color>
+    <color name="bibi_login_hint_complete_color_p">#20000000</color>
+    <color name="bibi_login_complete_button_p">#20fafafa</color>
+
+    <color name="bibi_hangup_icon_color">#e57373</color>
+    <color name="bibi_pickup_icon_color">#68bf4a</color>
+    <color name="bibi_pull_down_background">@color/bibi_black_transparency_100</color>
+
+    <color name="bibi_dlg_container_alt_textcolor">@color/bibi_grey_450</color>
+    <color name="bibi_dlg_container_main_textcolor">@color/bibi_grey_800</color>
+    <color name="bibi_emoji_layout_background">#ffecfe</color>
+
+    <color name="bibi_bad_network_warning_text_color">#f44336</color>
+    <color name="bibi_bad_network_warning_divider_line_color">#14000000</color>
+
+    <color name="bibi_abc_color">#f8f8f8</color>
+    <color name="bibi_emui">#34c0c5</color>
+    <color name="bibi_miui">#ff7200</color>
+    <color name="bibi_oppo">#17b766</color>
+    <color name="bibi_vivo">#00acff</color>
+    <color name="bibi_meizu">#42b56a</color>
+    <color name="bibi_coolpad">#29aa0f</color>
+
+    <!--<color name="bibi_wechat_share">#13a876</color>-->
+    <color name="bibi_wechat_share">@color/bibi_green_500</color>
+    <color name="bibi_qzone_share">#2196f3</color>
+    <color name="bibi_qq_share">@color/bibi_light_blue_400</color>
+    <color name="bibi_sms_share">@color/bibi_orange_600</color>
+    <color name="bibi_weibo_share">#ff5152</color>
+    <color name="bibi_startup_wave">#68bf4a</color>
+    <color name="bibi_loading_text_color">@color/bibi_black_transparency_350</color>
+
+    <color name="bibi_split_line_color">#13000000</color>
+    <color name="bibi_user_info_text_color">@color/bibi_black_transparency_550</color>
+    <color name="bibi_voice_emoticon_icon_color">#FF9575cd</color>
+    <color name="bibi_more_icon_color">@color/bibi_black_transparency_300</color>
+    <color name="bibi_invite_color">#e57373</color>
+
+    <color name="bibi_play_button_color">#f78337</color>
+
+    <color name="bibi_startup_page1_bg">#9de777</color>
+    <color name="bibi_startup_page2_bg">#68b8fa</color>
+    <color name="bibi_startup_page3_bg">#bd98f9</color>
+    <color name="bibi_startup_page4_bg">#ffffff</color>
+
+    <color name="bibi_friend_color_bg">#ffc007</color>
+    <color name="bibi_echo_color_bg">#ff5152</color>
+
+    <color name="bibi_custom_ring_set_color">#e57373</color>
+
+    <color name="bibi_chat_panel_micro_iconcolor">#50000000</color>
+    <color name="bibi_chat_panel_volume_textcolor">#b1b4bb</color>
+    <color name="bibi_chat_panel_volume_mutecolor">#ff5152</color>
+    <color name="bibi_chat_panel_circle_bordercolor">@color/bibi_black_transparency_150</color>
+    <color name="bibi_chat_panel_volume_speakercolor">@color/bibi_common_bar_backgroundcolor</color>
+    <color name="bibi_chat_panel_volume_speakercolor_selected">#4d44c846</color>
+
+    <color name="bibi_voice_emoticon_header_no_choice_text_color">
+        @color/bibi_white_transparency_700
+    </color>
+    <color name="bibi_voice_emoticon_list_item_bg">#d8d8d8</color>
+    <color name="bibi_voice_emoticon_tanmu_color_1">#8a000000</color>
+    <color name="bibi_voice_emoticon_tanmu_color_2">@color/bibi_common_me_green</color>
+
+    <color name="bibi_emoji_tab_selected_color">@color/bibi_black_transparency_550</color>
+    <color name="bibi_emoji_tab_text_color">@color/bibi_black_transparency_350</color>
+    <color name="bibi_emoji_setting_icon_color">#9575cd</color>
+
+    <color name="bibi_dynamic_loading_color_realtime_listening">#8dd474</color>
+    <color name="bibi_dynamic_loading_color_realtime_listening_h">#738dd474</color>
+
+    <color name="bibi_discover_sound_wall_color">#7d58c2</color>
+
+    <color name="bibi_count_down_border_color">#ffffc007</color>
+    <color name="bibi_app_update_close_color">#ffaef0ff</color>
+    <color name="bibi_app_update_scrollbar_color">#ff1c8ea7</color>
+
+    <color name="bibi_bibi_copyright_color">@color/bibi_black_transparency_300</color>
+
+    <color name="bibi_bad_network_icon_color">#ff9700</color>
+    <color name="bibi_play_back_bg_color">#ededed</color>
+
+    <color name="bibi_chat_message_content_gradient_begin_self">#aceb8c</color>
+    <color name="bibi_chat_message_content_gradient_end_self">#74d254</color>
+
+    <color name="bibi_chat_message_content_gradient_begin_peer">#f2f2f2</color>
+    <color name="bibi_chat_message_content_gradient_end_peer">#e3e3e3</color>
+
+    <color name="bibi_chat_message_activity_bg_color">#ededed</color>
+    <color name="bibi_chat_message_bottom_bar_start">#00FFFFFF</color>
+    <color name="bibi_chat_message_bottom_bar_end">#FFFFFFFF</color>
+
+    <color name="bibi_import_system_set_color">#ff653c</color>
+    <color name="bibi_add_friend_bg_color">#f3f3f3</color>
+    <color name="bibi_chat_panel_peer_avatar_border_color">#ffffff</color>
+    <color name="bibi_scroll_banner_bg_color">#cfcfcf</color>
+
+    <color name="bibi_video_upvote_1_color">#edeb2c</color>
+    <color name="bibi_video_upvote_2_color">#fcb321</color>
+    <color name="bibi_video_upvote_3_color">#53ea8c</color>
+    <color name="bibi_video_upvote_4_color">#3bd8b3</color>
+    <color name="bibi_video_upvote_5_color">#64d1ff</color>
+    <color name="bibi_video_upvote_6_color">#fd7070</color>
+    <color name="bibi_video_upvote_7_color">#627ff7</color>
+    <color name="bibi_video_upvote_8_color">#aa75f8</color>
+    <color name="bibi_emoji_tab_topdivider_color">#ededed</color>
+
+    <color name="bibi_emoji_icon_failed_1_color">#ffb0c3</color>
+    <color name="bibi_emoji_icon_failed_2_color">#b0ddff</color>
+    <color name="bibi_emoji_icon_failed_3_color">#c8b0ff</color>
+    <color name="bibi_emoji_icon_failed_4_color">#b0ffd0</color>
+    <color name="bibi_emoji_icon_failed_5_color">#fff386</color>
+    <color name="bibi_emoji_icon_failed_6_color">#e9d3c0</color>
+    <color name="bibi_turtle_green">#75bf4a</color>
+
+    <color name="bibi_chat_message_video_replay_color">#e2e2e2</color>
+    <color name="bibi_custom_emoji_time_text_color">#272020</color>
+
+    <color name="bibi_float_emoji_color_1">#81ACF9</color>
+    <color name="bibi_float_emoji_color_2">#89C34A</color>
+    <color name="bibi_float_emoji_color_3">#FFC007</color>
+    <color name="bibi_float_emoji_color_4">#FF5152</color>
+    <color name="bibi_float_emoji_color_5">#FA7091</color>
+    <color name="bibi_float_emoji_color_6">#AC7FFF</color>
+    <color name="bibi_float_emoji_color_7">#83EDFF</color>
+
+    <color name="bibi_tag_color_green">#68bf4a</color>
+    <color name="bibi_tag_color_green_transparent">#8068bf4a</color>
+    <color name="bibi_tag_color_pink">#ff7374</color>
+    <color name="bibi_tag_color_pink_transparent">#80ff7374</color>
+    <color name="bibi_tag_color_blue">#54b7ff</color>
+    <color name="bibi_black_with_transparency_78">#c8000000</color>
+    <color name="bibi_black_with_transparency_54">#8b000000</color>
+    <color name="bibi_black_with_transparency_30">#4d000000</color>
+    <color name="bibi_echo_color_primary">#e58dde47</color>
+    <color name="bibi_wave_transparent">#66ffffff</color>
+    <color name="bibi_matte_transparent_50">#80FFFFFF</color>
+    <color name="bibi_standard_matte_white">#80FFFFFF</color>
+    <color name="bibi_standard_matte_black">#80000000</color>
+    <color name="bibi_emotion_tag_3d_text_color">#A781FF</color>
+    <color name="bibi_color_emoticon_new">#ff9700</color>
+
+    <color name="bibi_tag_view_default_press_color">#8068bf4a</color>
+
+    <color name="bibi_bibi_live_tab_header_selected">#6bcc1d</color>
+    <color name="bibi_bibi_live_comment_hint_color">#a6a6a6</color>
+    <color name="bibi_bibi_live_comment_edit_text_bg_color">#d8d8d8</color>
+    <color name="bibi_bibi_live_comment_cursor_color">#6bcc1d</color>
+    <color name="bibi_bibi_live_page_background">#f2f2f2</color>
+    <color name="bibi_bibi_live_comment_nick_name_color">#8bc34a</color>
+    <color name="bibi_bibi_live_comment_content_color">#80000000</color>
+    <color name="bibi_bibi_live_comment_send_button_color">#ff653c</color>
+    <color name="bibi_bibi_live_hall_background">#eeeeee</color>
+    <color name="bibi_bibi_live_danmaku_host_content">#ff653c</color>
+    <color name="bibi_bibi_live_room_id_tag">#ffc007</color>
+    <color name="bibi_bibi_live_enterance_color">#04a9f3</color>
+    <color name="bibi_bibi_live_replay_watch_count">#ff7701</color>
+    <color name="bibi_bibi_live_live_tag_content">#c04d4d4d</color>
+    <color name="bibi_bibi_live_setup_line_color">#4dffffff</color>
+
+    <color name="bibi_startup_user_info_text_color_item">#999999</color>
+    <color name="bibi_startup_user_info_text_color_content">#de000000</color>
+    <color name="bibi_startup_user_info_text_color_normal">#e5e5e5</color>
+    <color name="bibi_startup_user_info_text_color_highlight">#68bf4a</color>
+    <color name="bibi_ripple_color">#11000000</color>
+
+    <color name="bibi_chat_panel_page_button_color_normal">#666666</color>
+    <color name="bibi_chat_panel_page_button_color_highlight">#38b7f3</color>
+    <color name="bibi_chat_speaker_listen_color">#6fdcae</color>
+    <color name="bibi_chat_speaker_online_shadow_color">#7d51c593</color>
+    <color name="bibi_chat_speaker_offline_shadow_color">#8049cfca</color>
+
+    <color name="bibi_jump_text_color_1">#ffb000</color>
+    <color name="bibi_jump_text_color_2">#f8e703</color>
+    <color name="bibi_jump_text_color_3">#c0ec61</color>
+    <color name="bibi_jump_text_color_4">#0cc77c</color>
+    <color name="bibi_jump_text_color_5">#8400f4</color>
+    <color name="bibi_jump_text_color_6">#2110b1</color>
+    <color name="bibi_jump_text_color_7">#006bf4</color>
+    <color name="bibi_jump_text_color_8">#049fd2</color>
+    <color name="bibi_jump_text_color_9">#ba04d2</color>
+    <color name="bibi_jump_text_color_10">#ff4188</color>
+    <color name="bibi_jump_text_color_11">#b1103c</color>
+    <color name="bibi_jump_text_color_12">#333333</color>
+
+    <color name="bibi_chat_panel_tease_color">#4ed198</color>
+    <color name="bibi_chat_panel_video_color">#cb9cff</color>
+    <color name="bibi_chat_panel_take_photo_color">#f890c7</color>
+    <color name="bibi_chat_panel_picture_color">#7eb4ff</color>
+
+    <color name="bibi_add_friend_button_color_normal">#52c594</color>
+    <color name="bibi_add_friend_button_color_pressed">#8052c594</color>
+    <color name="bibi_normal_divide_color">#d8d8d8</color>
+
+    <color name="bibi_color_me_nickname">#666666</color>
+    <color name="bibi_color_me_phone">#b3b3b3</color>
+    <color name="bibi_color_me_constellation">#4ed198</color>
+    <color name="bibi_color_btn_edit_nickname">#848484</color>
+    <color name="bibi_color_me_return">#666666</color>
+    <!--<color name="bibi_color_title">#4c4c4c</color>-->
+    <color name="bibi_color_title">@color/bibi_export_text_title_default</color>
+    <color name="bibi_color_view_split">#eeeeee</color>
+    <color name="bibi_color_setting_text">#4d4d4d</color>
+    <color name="bibi_color_male_flag">#04a9f3</color>
+    <color name="bibi_color_female_flag">#ff7374</color>
+
+    <color name="bibi_color_tag_create_button">#959595</color>
+    <color name="bibi_color_tag_add">#e2e2e2</color>
+    <color name="bibi_label_name">#a7a7a7</color>
+
+    <color name="bibi_start_bibi_button_color">#7e5bd3</color>
+
+    <color name="bibi_color_search_friend">#EAEAEA</color>
+
+    <color name="bibi_color_page_number_background">#808b8b8b</color>
+
+    <color name="bibi_startup_guide_green">#4ed198</color>
+    <color name="bibi_startup_guide_grey">#666666</color>
+    <color name="bibi_startup_guide_background">@color/bibi_white</color>
+
+
+    <color name="bibi_voice_texture_other">#666666</color>
+    <color name="bibi_talk_hint_bg">#111111</color>
+
+    <color name="bibi_white_three">#d8d8d8</color>
+
+    <!--incommingbar-->
+    <color name="bibi_incomming_bar_item_positive">#0cc77c</color>
+    <color name="bibi_incomming_bar_item_negative">#ff5152</color>
+
+    <!--system msg-->
+    <color name="bibi_bg_system_msg">#d8d8d8</color>
+
+    <!--tease avatar-->
+    <color name="bibi_tease_avatar_border">#3a3a3a</color>
+
+    <color name="bibi_color_add_friend">#9d9d9d</color>
+    <color name="bibi_holder_calllog_divider">@color/bibi_grey_100</color>
+
+
+    <color name="bibi_color_startup_personal_hint">#c6c6c6</color>
+
+    <color name="bibi_color_media_button_guild">#fdb449</color>
+    <color name="bibi_color_voice_texture_border">#f0f0f0</color>
+
+    <color name="bibi_color_new_message_hint">#1397f1</color>
+    <color name="bibi_color_voice_texture_grey_second">#bbbbbb</color>
+
+
+    <!--dialog birthday select-->
+    <color name="bibi_birthday_button_green">@color/bibi_common_me_green</color>
+    <color name="bibi_color_job_checked">#4ed198</color>
+
+    <color name="bibi_color_personal_info_label">#999999</color>
+    <color name="bibi_color_personal_info_bg">#f2f2f2</color>
+
+    <color name="bibi_color_dialog_cancel">#999999</color>
+
+    <color name="bibi_star_access_share_bg_press">#eeb82c</color>
+    <color name="bibi_star_access_share_bg_select">#FFC93C</color>
+
+    <color name="bibi_star_access_calllog_background">#c6c6c6</color>
+    <color name="bibi_color_text_calllog_normal">#999999</color>
+
+    <!--Crop View-->
+    <color name="bibi_ucrop_color_default_crop_grid">#80ffffff</color>
+    <color name="bibi_ucrop_color_default_crop_frame">#ffffff</color>
+    <color name="bibi_ucrop_color_default_dimmed">#8c000000</color>
+    <color name="bibi_ucrop_color_default_logo">#4f212121</color>
+
+    <color name="bibi_download_disable">#dbdbdb</color>
+    <color name="bibi_empty_collection_hint">#878787</color>
+    <color name="bibi_collection_emoticon_name">#888888</color>
+    <color name="bibi_delete_group">#f4f4f4</color>
+    <color name="bibi_delete">#ff5152</color>
+
+    <color name="bibi_calllog_item_peer_name">#333333</color>
+    <color name="bibi_call_log_text_default_color">#333333</color>
+    <color name="bibi_call_log_text_color">@color/bibi_grey_400</color>
+
+    <color name="bibi_chat_message_hint_text_color">#999999</color>
+    <color name="bibi_chat_message_name_color">#808080</color>
+    <color name="bibi_chat_message_normal_text_color">#1a1a1a</color>
+    <color name="bibi_export_text_title_default">#1A1A1A</color>
+    <color name="bibi_dodger_blue500">#38b7f3</color>
+    <color name="bibi_chat_grey_400">#999999</color>
+    <color name="bibi_chat_grey_600">#666666</color>
+    <color name="bibi_send_error_hint_color">#f2334c</color>
+    <color name="bibi_add_friend_icon_color">#b3b3b3</color>
+    <color name="bibi_right_arrow_icon_color">#878787</color>
+    <color name="bibi_group_info_hint_color">#8D8D8D</color>
+    <color name="bibi_group_info_line_color">#EEEEEE</color>
+    <color name="bibi_group_info_divider_color">#F5F5F5</color>
+    <color name="bibi_group_info_delete_normal_color">#fd495b</color>
+    <color name="bibi_group_info_delete_pressed_color">#d92a41</color>
+
+    <color name="bibi_letter_head_bg_color">#F5F5F5</color>
+    <color name="bibi_invited_color">#c0c0c0</color>
+    <color name="bibi_un_invited_color">@color/bibi_light_blue_500</color>
+    <color name="bibi_contact_photo_bg_color">#d9d9d9</color>
+
+    <color name="bibi_invite_button_top_line_color">#cccccc</color>
+    <color name="bibi_emoticon_group_drag_hint_icon_color">#d8d8d8</color>
+    <color name="bibi_emoticon_group_drag_hint_text_color">#8d8d8d</color>
+    <color name="bibi_dlg_standard_close_color">#535353</color>
+    <color name="bibi_section_index_popup_stroke_bg_color">@color/bibi_light_blue_100</color>
+    <color name="bibi_andes_highlight_press">@color/bibi_light_blue_500</color>
+    <color name="bibi_empty_hint_main_text_color">@color/bibi_grey_900</color>
+    <color name="bibi_empty_hint_alt_text_color">@color/bibi_grey_400</color>
+    <color name="bibi_round_rect_button_text_color">@color/bibi_light_blue_500</color>
+    <color name="bibi_round_rect_button_color_normal">@color/bibi_light_blue_500</color>
+    <color name="bibi_round_rect_button_color_pressed">@color/bibi_light_blue_transparency_100</color>
+    <color name="bibi_meet_float_color">#f1629a</color>
+    <color name="bibi_default_avatar_pink">#ffa8db</color>
+    <color name="funcbar_btton_textcolor_pressed">@color/bibi_white</color>
+    <color name="funcbar_btton_textcolor_normal">@color/bibi_white</color>
+    <color name="chat_group_red_confirm_color">#ff5c93</color>
+    <color name="chat_group_edit_bg_color">#1b1639</color>
+    <color name="bibi_warm_pink">#ff5c93</color>
+    <color name="chat_group_float_color">#ceb0ff</color>
+
+
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFffffff</color>
+    <color name="gift_pop_name_normal">#161349</color>
+    <color name="gift_pop_name_middle">#02131e</color>
+    <color name="gift_pop_name_valuable">#6f1f00</color>
+    <color name="bibi_system_notice_clickable">#29b6f6</color>
+
+
+    <!-- ranking 排行榜页面用色 -->
+    <color name="bibi_ranking_value_color">#ff9b35</color>
+    <color name="bibi_ranking_text_color">#b3000000</color>
+    <color name="bibi_top_two_color">#b2000000</color>
+    <color name="bibi_top_three_text">#80000000</color>
+    <color name="bibi_top_value_text">#7f000000</color>
+    <color name="bibi_worth_bg_color">#ffaa53</color>
+    <color name="bibi_worth_rg_text">#eda20c</color>
+    <color name="bibi_ranking_item_color1">#fef9ff</color>
+    <color name="bibi_ranking_item_white">#ffffff</color>
+    <color name="bibi_ranking_item_text">#fa4a60</color>
+    <color name="bibi_ranking_radiogroup_text">@color/bibi_red_400</color>
+    <color name="bibi_charm_bg_color">#d67ffc</color>
+    <color name="bibi_top_three_puple">#cf68fb</color>
+    <color name="chat_group_message_main_color">#b8b7ff</color>
+    <color name="bibi_purple_transparent_300">#33dd96fc</color>
+    <color name="black_transparency_50" >#0D000000</color>
+
+    <!--sincere shadow  gradient-->
+    <color name="bibi_sincere_shadow_gradient_1">#0103a9f4</color>
+    <color name="bibi_sincere_shadow_gradient_2">#0203a9f4</color>
+    <color name="bibi_sincere_shadow_gradient_3">#0303a9f4</color>
+
+
+    <color name="profile_detail_background">#f3f3f3</color>
+    <color name="colorAccent">#f3f3f3</color>
+    <color name="colorPrimary">#f3f3f3</color>
+    <color name="colorPrimaryDark">#f3f3f3</color>
+</resources>

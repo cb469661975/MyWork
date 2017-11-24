@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#77000000"
+    android:id="@+id/scrollView"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4sp"
+            android:padding="@dimen/bibi_dimen_15"
+            android:text="选择派单品类"
+            android:textColor="#fff"
+            android:textSize="16sp" />
+
+        <com.example.cheng.myapplication.ui.MyGridView
+            android:id="@+id/gv_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:verticalSpacing="15dp"
+            android:horizontalSpacing="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:numColumns="3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4sp"
+            android:padding="@dimen/bibi_dimen_15"
+            android:text="选择接单红人性别"
+            android:textColor="#fff"
+            android:textSize="16sp" />
+
+        <com.example.cheng.myapplication.ui.MyGridView
+            android:id="@+id/gv_gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:horizontalSpacing="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:numColumns="3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4sp"
+            android:padding="@dimen/bibi_dimen_15"
+            android:text="填写其他备注要求"
+            android:textColor="#fff"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_require"
+            android:layout_width="match_parent"
+            android:layout_height="79dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/shape_category_normal"
+            android:gravity="top"
+            android:hint="请填写老板的要求，方便红人接单"
+            android:lineSpacingExtra="5.7sp"
+            android:padding="10dp"
+            android:textColorHint="#66ffffff"
+            android:overScrollMode="ifContentScrolls"
+            android:maxLength="10"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/bt_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/selector_start_order_bt"
+            android:text="派单"
+            android:textColor="#fff"
+            android:textSize="16sp" />
+    </LinearLayout>
+</ScrollView>

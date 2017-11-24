@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/chat_speak_waiting"
+    tools:context="com.example.cheng.myapplication.MainActivity">
+
+    <com.example.cheng.myapplication.ui.PointDraw3View
+        android:layout_width="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="#aaa"
+        android:layout_height="30dp" />
+
+    <com.example.cheng.myapplication.LeansLayout
+        android:id="@+id/leans_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:text="Hello World!"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp">
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="123456"-->
+            <!--/>-->
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="123456"-->
+            <!--/>-->
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="123456"-->
+            <!--/>-->
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="123456"-->
+            <!--/>-->
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="123456"-->
+            <!--/>-->
+
+
+        </com.example.cheng.myapplication.LeansLayout>
+        <Button
+            android:text="Main跳Next"
+            android:layout_width="wrap_content"
+            android:onClick="onClickMain"
+            android:background="@drawable/shape_shadow"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/et_cardNumber"
+        android:layout_width="200dp"
+        android:layout_height="10dp"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:paddingLeft="15dp"
+        android:textColor="#333333"
+        android:maxLength="20"
+        android:textSize="14sp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp" />
+
+    <!--<com.bigkoo.pickerview.TimePickerView-->
+        <!--android:id="@+id/timerpick"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="200dp"></com.bigkoo.pickerview.TimePickerView>-->
+
+    <com.example.cheng.myapplication.LivingHintView
+        android:id="@+id/vvv"
+        android:layout_width="20dp"
+        android:background="#aa000000"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        android:layout_height="20dp" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:text="123123123121231231231312312"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:fadingEdgeLength="10dp"
+        android:requiresFadingEdge="horizontal"
+        android:layout_height="wrap_content" />
+
+
+
+    <com.example.cheng.myapplication.ui.AutoScrollTextView
+        android:id="@+id/tv_text"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:textColor="#000"
+        android:singleLine="true"
+        android:textSize="18sp"
+        android:text="生日宴我吃饭了我真的吃饭了"
+        android:gravity="center"
+        android:inputType="text"
+       />
+
+    <com.example.cheng.myapplication.ui.WorldNoticeView
+        android:id="@+id/worldnoticeview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.example.cheng.myapplication.GlobalNoticeView
+        android:id="@+id/globalnotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:text="start"
+        android:onClick="start"
+        />
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:onClick="stop"
+        android:text="stop"
+        />
+    <com.example.cheng.myapplication.ui.BannerPointView
+        android:id="@+id/bannerPoint"
+        android:layout_width="110dp"
+        android:layout_marginLeft="20dp"
+        android:layout_height="30dp" />
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#000"
+        />
+    <com.example.cheng.myapplication.ui.LinearBanner
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

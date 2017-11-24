@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_left_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        />
+
+    <com.example.cheng.myapplication.ui.MarqueeText
+        android:id="@+id/maquneview"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        />
+     <TextView
+         android:id="@+id/tv_around_see"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="围观有礼"
+         android:layout_gravity="center_vertical"
+         android:background="@drawable/shape_around_see"
+         android:gravity="center"
+         android:textColor="@color/white"
+         android:textSize="12sp"
+         android:shadowColor="#991100"
+         android:shadowDy="2"
+         android:shadowRadius="2"
+         />
+
+</LinearLayout>

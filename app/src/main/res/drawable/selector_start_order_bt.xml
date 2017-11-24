@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false">
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/bibi_dimen_33"></corners>
+            <size android:width="280dp" android:height="50dp"></size>
+            <gradient android:endColor="#ff5a5a" android:startColor="#fbb422"></gradient>
+        </shape>
+    </item>
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/bibi_dimen_33"></corners>
+            <size android:width="280dp" android:height="50dp"></size>
+            <gradient android:endColor="#ea4242" android:startColor="#e39e11"></gradient>
+        </shape>
+    </item>
+</selector>

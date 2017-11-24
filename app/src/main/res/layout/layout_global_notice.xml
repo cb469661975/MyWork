@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="36dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/global_notice_bg" />
+
+    <ImageView
+        android:id="@+id/iv_left_icon"
+        android:layout_width="49.1dp"
+        android:layout_height="match_parent"
+        android:scaleType="centerInside"
+        android:src="@drawable/global_hao" />
+
+    <ImageView
+        android:id="@+id/tv_around_see"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/selector_global_jump_to_living"
+        android:gravity="center"
+        android:shadowColor="#991100"
+        android:text="围观有礼"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+<HorizontalScrollView
+    android:id="@+id/scrollview"
+    android:layout_width="match_parent"
+    android:layout_toLeftOf="@id/tv_around_see"
+    android:layout_toRightOf="@id/iv_left_icon"
+    android:scrollbars="none"
+    android:layout_height="match_parent">
+    <com.example.cheng.myapplication.ui.MarqueeText
+        android:id="@+id/maquneview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:ellipsize="marquee"
+        android:fadingEdgeLength="32dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="left|center_vertical"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:text="121212" />
+</HorizontalScrollView>
+</RelativeLayout>
