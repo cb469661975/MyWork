@@ -20,5 +20,20 @@
         android:layout_height="wrap_content"
         android:text="changeLevle"
         />
+    <EditText
+        android:id="@+id/et_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="111111"
+        android:inputType="textPassword"
+        />
+    <Button
+        android:onClick="onClickChangeEtStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="changeEditTest"
+
+        />
+
 
 </LinearLayout>

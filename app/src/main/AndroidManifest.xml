@@ -41,6 +41,7 @@
         <activity android:name=".RecycleViewActivity" />
         <activity android:name=".ScrollStartActivity" />
         <activity android:name=".ViewPagerActivity" />
+        <activity android:name=".LottieActivity" />
     </application>
 
 </manifest>

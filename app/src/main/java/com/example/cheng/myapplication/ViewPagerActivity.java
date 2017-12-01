@@ -8,8 +8,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.cheng.myapplication.fragment.TestFragment1;
@@ -30,6 +33,7 @@ public class ViewPagerActivity extends BaseActivity {
     private ViewPager viewPager;
     private List<Fragment> listFragmemt;
     private ImageView iv_clip;
+    private EditText et_pwd;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,6 +41,7 @@ public class ViewPagerActivity extends BaseActivity {
         setContentView(R.layout.ac_viewpager);
         viewPager = (ViewPager) findViewById(viewpager);
         iv_clip = (ImageView) findViewById(R.id.iv_clip);
+        et_pwd = (EditText) findViewById(R.id.et_pwd);
 
         listFragmemt = new ArrayList<>();
         listFragmemt.add(new TestFragment1());
@@ -73,5 +78,13 @@ public class ViewPagerActivity extends BaseActivity {
         level += 1500;
         ClipDrawable clipDrawable = (ClipDrawable) iv_clip.getDrawable();
         clipDrawable.setLevel(level);
+    }
+
+    boolean isShowNum = false;
+
+    public void onClickChangeEtStatus(View v) {
+        isShowNum = !isShowNum;
+        et_pwd.setTransformationMethod(isShowNum == false ? PasswordTransformationMethod
+                .getInstance() : HideReturnsTransformationMethod.getInstance());
     }
 }

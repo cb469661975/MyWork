@@ -20,6 +20,11 @@
             android:layout_height="wrap_content"
             android:onClick="onClickClipDrawable"
             android:text="ClipDrawable" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickLotteanim"
+            android:text="LOTTEANIM" />
 
     </LinearLayout>
 </ScrollView>

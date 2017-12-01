@@ -22,4 +22,8 @@ public class ScrollStartActivity extends BaseActivity {
     public void onClickClipDrawable(View v) {
         startActivity(ViewPagerActivity.class);
     }
+
+    public void onClickLotteanim(View view) {
+            startActivity(LottieActivity.class);
+    }
 }
