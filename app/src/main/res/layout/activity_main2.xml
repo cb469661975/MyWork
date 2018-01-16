@@ -81,11 +81,6 @@
         android:gravity="center"
         android:text="我是谁啊 我是谁啊我是谁是啊我是谁啊aasaaaaaaa" />
 
-    <com.example.cheng.myapplication.TPLinearLayout
-        android:id="@+id/tll"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="#00aaaa" />
 
     <FrameLayout
         android:id="@+id/framelayout"

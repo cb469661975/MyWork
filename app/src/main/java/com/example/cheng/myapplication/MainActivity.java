@@ -1,14 +1,9 @@
 package com.example.cheng.myapplication;
 
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.Environment;
-import android.os.IBinder;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextUtils;
@@ -22,28 +17,32 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.alibaba.fastjson.JSON;
 import com.bigkoo.pickerview.TimePickerView;
 import com.example.cheng.myapplication.model.ChatGroupGlobalGiftModel;
 import com.example.cheng.myapplication.service.TestService;
 import com.example.cheng.myapplication.ui.AutoScrollTextView;
 import com.example.cheng.myapplication.ui.BannerPointView;
 import com.example.cheng.myapplication.ui.WorldNoticeView;
-import com.example.cheng.myapplication.util.ProvinceUtil;
+import com.example.cheng.myapplication.util.TestKotlinUtils;
 import com.example.cheng.myapplication.util.TextLengthFilter;
-
-import junit.framework.Test;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Date;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
+
+import rx.Observable;
+import rx.Observer;
+import rx.Scheduler;
+import rx.Subscriber;
+import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
 
 public class MainActivity extends BaseActivity {
 
@@ -54,18 +53,21 @@ public class MainActivity extends BaseActivity {
     private LivingHintView vvv;
     private WorldNoticeView worldnoticeview;
 
-
     private JSONObject jsonObject1;
     private AutoScrollTextView autoTextView;
     private GlobalNoticeView globalnotice;
     private BannerPointView bannerPoint;
     private LinearLayout ll;
-
-
+    private Subscription subscribe;
+    String as="abcdefjsonaaa";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Log.i("MainActivity","a="+as.indexOf("json"));
+
+
         leans_layout = (LeansLayout) findViewById(R.id.leans_layout);
         bannerPoint = (BannerPointView) findViewById(R.id.bannerPoint);
         worldnoticeview = (WorldNoticeView) findViewById(R.id.worldnoticeview);
@@ -114,6 +116,8 @@ public class MainActivity extends BaseActivity {
         }
         main();
     }
+
+
 
     public String getFromAssets(String fileName) {
         try {
@@ -180,10 +184,8 @@ public class MainActivity extends BaseActivity {
     }
 
     public void onClickMain(View xc) {
-//        startActivity(new Intent(this, Main2Activity.class));
+        startActivity(new Intent(this, Main2Activity.class));
 //        startActivity(new Intent(this, RecycleViewActivity.class));
-
-
         bannerPoint.setSelctPosiiton(bannerPoint.getPosition()+1);
         BannerPointView bannerPointView = getBannerPointView(this, 3);
         LinearLayout.LayoutParams l = new LinearLayout.LayoutParams(
@@ -226,35 +228,29 @@ public class MainActivity extends BaseActivity {
 
     public void main() {
 
-        Log.i("cityProvinceResult", cityProvinceResult("澳门"));
-        Log.i("cityProvinceResult", cityProvinceResult("香港省"));
-        Log.i("cityProvinceResult", cityProvinceResult("澳门啥回事"));
-        Log.i("cityProvinceResult", cityProvinceResult("平顶山市"));
-        Log.i("cityProvinceResult", cityProvinceResult("沙河"));
-        Log.i("cityProvinceResult", cityProvinceResult("北京"));
-        Log.i("cityProvinceResult", cityProvinceResult("重庆莎莎和"));
+         subscribe = Observable.create(new Observable.OnSubscribe<String>() {
+            @Override
+            public void call(Subscriber<? super String> subscriber) {
 
-        String addr = "";
-        String city = "2沙河";
-
-//        int i = addr.indexOf(city);
-//        Log.i("cityProvinceResult",i+"==========");
-//        Log.i("cityProvinceResult",qurey.substring(0,qurey.indexOf(city))+city);
-        if (!TextUtils.isEmpty(addr) && !TextUtils.isEmpty(city) && addr.contains(city)) {
-            city = addr.substring(0, addr.indexOf(city)) + city;
-            if (city.contains("中国")) {
-                city = city.replace("中国", "");
             }
-            if (!city.endsWith("市")) {
-                city = city + "市";
-            }
-        }
-        Log.i("cityProvinceResult", city + "==========");
+        }).observeOn(Schedulers.io()).subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onCompleted() {
 
-//        ProvinceUtil.getProvinceCity("香港省");
-//        ProvinceUtil.getProvinceCity("澳门啥回事");
-//        ProvinceUtil.getProvinceCity("河南省平顶山市");
-//        ProvinceUtil.getProvinceCity("福建省省沙河县城");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+
+                    }
+                });
+
     }
 
     private String formatQureyCity(String city) {
@@ -350,8 +346,6 @@ public class MainActivity extends BaseActivity {
 
     private void getModel(){
 
-
-
     }
 
     public void stop(View view) {
@@ -359,4 +353,9 @@ public class MainActivity extends BaseActivity {
         startActivity(ScrollStartActivity.class);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        subscribe.unsubscribe();
+    }
 }

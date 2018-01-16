@@ -42,6 +42,9 @@
         <activity android:name=".ScrollStartActivity" />
         <activity android:name=".ViewPagerActivity" />
         <activity android:name=".LottieActivity" />
+        <activity android:name=".kotlin.KotlinActivity" />
+        <activity android:name=".TestActivity"></activity>
+        <activity android:name=".WebActivity"></activity>
     </application>
 
 </manifest>

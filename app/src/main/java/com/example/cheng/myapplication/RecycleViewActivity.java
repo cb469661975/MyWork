@@ -6,11 +6,13 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.cheng.myapplication.ui.DividerGridItemDecoration;
+import com.example.cheng.myapplication.util.SelfGridLayoutManager;
 
 /**
  * Created by biao.cheng on 2017/10/31.
@@ -18,7 +20,6 @@ import com.example.cheng.myapplication.ui.DividerGridItemDecoration;
 
 public class RecycleViewActivity extends Activity {
     RecyclerView recycleView;
-    private LinearLayoutManager llM;
     private RecyclerView.Adapter adapter;
 
     private int count = 14;
@@ -28,7 +29,7 @@ public class RecycleViewActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recycle_layout);
         recycleView = findViewById(R.id.recycleView);
-        recycleView.setLayoutManager(llM = new GridLayoutManager(this, 2));
+        recycleView.setLayoutManager(new GridLayoutManager(this, 2));
         recycleView.addItemDecoration(new DividerGridItemDecoration(this));
         recycleView.setAdapter(adapter = new RecyclerView.Adapter() {
             @Override
@@ -50,11 +51,6 @@ public class RecycleViewActivity extends Activity {
                     super(itemView);
                 }
             }
-
         });
-
-
     }
-
-
 }

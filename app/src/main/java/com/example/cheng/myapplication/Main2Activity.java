@@ -35,6 +35,7 @@ import com.example.cheng.myapplication.ui.WorldNoticeView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import rx.Observable;
@@ -54,7 +55,6 @@ public class Main2Activity extends Activity implements ViewSwitcher.ViewFactory,
     private float touchDownX;
     private int textIndex;
     private float touchUpX;
-    private TPLinearLayout tll;
     //    private WorldNoticeView worldnoticeview;
     private MarqueeView2 mMarqueeView;
     private MarqueeText marqueeText;
@@ -75,7 +75,6 @@ public class Main2Activity extends Activity implements ViewSwitcher.ViewFactory,
         mMarqueeView = (MarqueeView2) findViewById(R.id.mMarqueeView);
         marqueeText = (MarqueeText) findViewById(R.id.marqueetest);
         viewpager = (ViewPager) findViewById(R.id.viewpager);
-        tll = (TPLinearLayout) findViewById(R.id.tll);
         Log.i(TAG, "onCreate");
         initData();
         textswitcher.setFactory(this);
@@ -90,8 +89,20 @@ public class Main2Activity extends Activity implements ViewSwitcher.ViewFactory,
         }else if(a<5){
             Log.i("aaaa","bbbbbb");
         }
+//        doMemory();
     }
 
+//    private void doMemory() {
+//        Observable.interval(1, TimeUnit.SECONDS)
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Action1<Long>() {
+//                    @Override
+//                    public void call(Long aLong) {
+//                        Log.i("interval","aaaaaa");
+//                    }
+//                });
+//    }
 
     private class MyPageAdapter extends PagerAdapter {
 
@@ -252,9 +263,6 @@ public class Main2Activity extends Activity implements ViewSwitcher.ViewFactory,
     }
 
     public void onClickAnim(View imageView) {
-
-
-        tll.setItemNum(3);
 
         ObjectAnimator ox = ObjectAnimator.ofFloat(imageView, "scaleX", 0.8f, 1.8f);
         ObjectAnimator oy = ObjectAnimator.ofFloat(imageView, "scaleY", 0.8f, 1.8f);
