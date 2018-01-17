@@ -4,12 +4,12 @@ import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import com.example.cheng.myapplication.kotlin.Utils
 
 /**
  * Created by chengbiao on 2017/12/19.
  */
 class StringAdapter: BaseAdapter() {
-
 
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

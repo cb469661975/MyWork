@@ -12,13 +12,14 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TableLayout
 
 import com.example.cheng.myapplication.fragment.TestFragment1
 import com.example.cheng.myapplication.fragment.TestFragment2
 import com.example.cheng.myapplication.fragment.TestFragment3
 
 import com.example.cheng.myapplication.R.id.viewpager
-import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * Created by biao.cheng on 2017/11/16.
@@ -35,6 +36,10 @@ class ViewPagerActivity : BaseActivity() {
 
     internal var isShowNum = false
 
+    var tabLayout: TableLayout? = null
+
+    var titles = arrayOf("我的", "我的你的", "我", "大家有空来")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.ac_viewpager)
@@ -47,11 +52,13 @@ class ViewPagerActivity : BaseActivity() {
         listFragmemt!!.add(TestFragment2())
         listFragmemt!!.add(TestFragment3())
 
+
+
         viewPager!!.adapter = MyViewPagerAdapter(listFragmemt as ArrayList<Fragment>, supportFragmentManager)
         viewPager!!.currentItem = 1
         viewPager!!.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-                Log.i("addOnPageChangeListener",position.toString()+"===="+positionOffset+"")
+                Log.i("addOnPageChangeListener", position.toString() + "====" + positionOffset + "")
             }
 
             override fun onPageSelected(position: Int) {

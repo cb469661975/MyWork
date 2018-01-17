@@ -41,4 +41,7 @@ class ScrollStartActivity : BaseActivity() {
     fun onClickWebview(view: View) {
         startActivity(WebActivity::class.java)
     }
+    fun onClickTablayout(view: View) {
+        startActivity(TabLayoutActivity::class.java)
+    }
 }

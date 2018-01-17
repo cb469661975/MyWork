@@ -40,6 +40,11 @@
             android:layout_height="wrap_content"
             android:onClick="onClickWebview"
             android:text="webview" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickTablayout"
+            android:text="tablayout" />
 
     </LinearLayout>
 </ScrollView>

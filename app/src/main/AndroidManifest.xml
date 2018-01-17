@@ -45,6 +45,7 @@
         <activity android:name=".kotlin.KotlinActivity" />
         <activity android:name=".TestActivity"></activity>
         <activity android:name=".WebActivity"></activity>
+        <activity android:name=".TabLayoutActivity"></activity>
     </application>
 
 </manifest>
