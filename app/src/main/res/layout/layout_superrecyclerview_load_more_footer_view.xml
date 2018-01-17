@@ -17,4 +17,5 @@
     <include
         android:id="@+id/loadingView"
         layout="@layout/layout_superrecyclerview_load_more_footer_loading_view" />
+
 </merge>
