@@ -1,68 +1,103 @@
 package com.example.cheng.myapplication;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 /**
  * Created by cheng on 2017/9/7.
  */
+public class LeansLayout extends FrameLayout {
+    /**
+     * 默认是宽度/长度
+     */
+    private float mRadioWH = 0;
+    private float DEFAULT_RADIOWH = 0;
 
-public class LeansLayout extends LinearLayout
-{
-    private int mHeight;
-    private int mWidth;
-
+    private String TAG = "LeansLayout";
 
     public LeansLayout(Context context) {
         super(context);
-        init();
+        init(context, null);
     }
 
     public LeansLayout(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        init();
+        init(context, attrs);
     }
 
     public LeansLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+        init(context, attrs);
     }
 
-    private void init() {
-        this.setOrientation(LinearLayout.VERTICAL);
-
-
+    private void init(Context context, AttributeSet attrs) {
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.LeansLayout);
+        mRadioWH = typedArray.getFloat(R.styleable.LeansLayout_roateWH, mRadioWH);
+        typedArray.recycle();
     }
 
+    /**
+     * 获得宽高的同时，取得宽高比
+     */
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        mWidth=w;
-        mHeight=h;
+        if (DEFAULT_RADIOWH > 0) {
+        } else {
+            DEFAULT_RADIOWH = w * 1.0f / h;
+        }
+        if (mRadioWH > 0) {
+        } else {
+            mRadioWH = DEFAULT_RADIOWH;
+        }
+        Log.i(TAG, "roateWH=" + mRadioWH);
     }
 
-    public void addChildView(View child) {
-        if (child == null) {
-            throw new IllegalArgumentException("Cannot add a null child view to a ViewGroup");
-        }else{
-            Context ctx=MyApplication.mContext;
-            WindowManager  W = (WindowManager) ctx.getSystemService(Context.WINDOW_SERVICE);
+    /**
+     * 对子View进行测量
+     */
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childView = getChildAt(i);
+            measureChild(childView, widthMeasureSpec, heightMeasureSpec);
         }
-        Log.i("addCHildView",mWidth+"=="+mHeight);
+    }
+    /***
+     * 手动帮子类布局成倾斜的
+     */
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        int childCount = getChildCount();
+        int totalheight = 0;
+        for (int i = 0; i < childCount; i++) {
+            View childView = getChildAt(i);
+            int width = childView.getMeasuredWidth();
+            int height = childView.getMeasuredHeight();
+            totalheight = totalheight + height;
+            //获取子View的margin
+            FrameLayout.LayoutParams frameLayoutParams = (LayoutParams) childView.getLayoutParams();
 
-        LinearLayout.LayoutParams lp= new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-        if(lp!=null){
-            lp.leftMargin=getChildCount()*100;
-            child.setLayoutParams(lp);
-            Log.i("addCHildViewq",child.getMeasuredHeight()+"=="+child.getWidth());
-
+            int left = frameLayoutParams.leftMargin;
+            int top = frameLayoutParams.topMargin;
+            int bottom = frameLayoutParams.bottomMargin;
+            //保证第一个View的位置不显示到布局外面
+            if (i != 0) {
+                int yPoint = totalheight - height / 2;
+                left = left + (int) (mRadioWH * yPoint - width / 2);
+                top = top + totalheight - height;
+            }
+            //布局  默认的左上右下
+            childView.layout(left, top, left + width, top + height + bottom);
         }
-        addView(child);
     }
 }

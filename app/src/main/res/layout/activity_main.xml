@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/chat_speak_waiting"
     android:orientation="vertical"
     tools:context="com.example.cheng.myapplication.MainActivity">
 
@@ -17,43 +16,44 @@
 
     <com.example.cheng.myapplication.LeansLayout
         android:id="@+id/leans_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
         android:text="Hello World!"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="123456"-->
-        <!--/>-->
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="123456"-->
-        <!--/>-->
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="123456"-->
-        <!--/>-->
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="123456"-->
-        <!--/>-->
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="123456"-->
-        <!--/>-->
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="我是斜的" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="126" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="21我的是11" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="@dimen/bibi_dimen_30"
+            android:layout_marginLeft="100dp"
+            android:text="123121231231" />
 
     </com.example.cheng.myapplication.LeansLayout>
 
     <FrameLayout
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="20dp"
         android:background="#aaa">
 
         <com.example.cheng.myapplication.ui.LoadingView
@@ -70,6 +70,12 @@
         android:text="Main跳Next"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
+
+    <com.example.cheng.myapplication.marqueevertical.MarqueeView
+        android:id="@+id/mMarqueeView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 
     <EditText
         android:id="@+id/et_cardNumber"

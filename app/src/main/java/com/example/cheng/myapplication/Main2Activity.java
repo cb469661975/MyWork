@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -79,17 +80,19 @@ public class Main2Activity extends Activity implements ViewSwitcher.ViewFactory,
         initData();
         textswitcher.setFactory(this);
         textswitcher.setOnTouchListener(this);
-        pageAdapter=new MyPageAdapter();
+        pageAdapter = new MyPageAdapter();
         pageAdapter.setmGiftInfoDatas(list1);
         viewpager.setAdapter(pageAdapter);
 
-        int a=2;
-        if(a<3){
-            Log.i("aaaa","aaaaaaa");
-        }else if(a<5){
-            Log.i("aaaa","bbbbbb");
+        int a = 2;
+        if (a < 3) {
+            Log.i("aaaa", "aaaaaaa");
+        } else if (a < 5) {
+            Log.i("aaaa", "bbbbbb");
         }
 //        doMemory();
+
+
     }
 
 //    private void doMemory() {
@@ -106,7 +109,7 @@ public class Main2Activity extends Activity implements ViewSwitcher.ViewFactory,
 
     private class MyPageAdapter extends PagerAdapter {
 
-        private List<String> mGiftInfoDatas=new ArrayList<>();
+        private List<String> mGiftInfoDatas = new ArrayList<>();
 
         public List<String> getmGiftInfoDatas() {
             return mGiftInfoDatas;
@@ -129,19 +132,19 @@ public class Main2Activity extends Activity implements ViewSwitcher.ViewFactory,
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            View view=View.inflate(container.getContext(),R.layout.item_in_gridview,null);
+            View view = View.inflate(container.getContext(), R.layout.item_in_gridview, null);
             int maxSize = mGiftInfoDatas.size() > position * 8 + 8 ? position * 8 + 8 : mGiftInfoDatas.size();
             final List<String> giftInfos = mGiftInfoDatas.subList(position * 8, maxSize);
-            GridView gridView=(GridView) view.findViewById(R.id.gridView);
+            GridView gridView = (GridView) view.findViewById(R.id.gridView);
 
             GiftVipAdapter giftadapter;
-            Log.i("instantiateItem",giftInfos.size()+"==="+mGiftInfoDatas.size());
+            Log.i("instantiateItem", giftInfos.size() + "===" + mGiftInfoDatas.size());
 
-            gridView.setAdapter(giftadapter=new GiftVipAdapter(container.getContext()));
+            gridView.setAdapter(giftadapter = new GiftVipAdapter(container.getContext()));
             gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Log.i("instantiateItem","click+"+giftInfos.get(i));
+                    Log.i("instantiateItem", "click+" + giftInfos.get(i));
                 }
             });
             giftadapter.setData(giftInfos);
@@ -234,31 +237,33 @@ public class Main2Activity extends Activity implements ViewSwitcher.ViewFactory,
     public void onClickMain(View xc) {
         startActivity(new Intent(this, RecycleViewActivity.class));
     }
+
     public void onClick1(View xc) {
 //        pageAdapter=new MyPageAdapter();
 //        pageAdapter.setmGiftInfoDatas(list1);
 //        viewpager.setAdapter(pageAdapter);
 
-        int a=1;
-        if(a<3){
-            Log.i("aaaa","aaaaaaa");
-        }else if(a<5){
-            Log.i("aaaa","bbbbbb");
-        }else if(a<7){
-            Log.i("aaaa","cccccc");
+        int a = 1;
+        if (a < 3) {
+            Log.i("aaaa", "aaaaaaa");
+        } else if (a < 5) {
+            Log.i("aaaa", "bbbbbb");
+        } else if (a < 7) {
+            Log.i("aaaa", "cccccc");
         }
     }
+
     public void onClick2(View xc) {
 //        pageAdapter=new MyPageAdapter();
 //        pageAdapter.setmGiftInfoDatas(list2);
 //        viewpager.setAdapter(pageAdapter);
-        int a=4;
-        if(a<3){
-            Log.i("aaaa","aaaaaaa");
-        }else if(a<5){
-            Log.i("aaaa","bbbbbb");
-        }else if(a<7){
-            Log.i("aaaa","cccccc");
+        int a = 4;
+        if (a < 3) {
+            Log.i("aaaa", "aaaaaaa");
+        } else if (a < 5) {
+            Log.i("aaaa", "bbbbbb");
+        } else if (a < 7) {
+            Log.i("aaaa", "cccccc");
         }
     }
 

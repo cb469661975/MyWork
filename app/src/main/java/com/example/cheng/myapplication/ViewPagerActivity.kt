@@ -19,6 +19,7 @@ import com.example.cheng.myapplication.fragment.TestFragment2
 import com.example.cheng.myapplication.fragment.TestFragment3
 
 import com.example.cheng.myapplication.R.id.viewpager
+import kotlinx.android.synthetic.main.ac_viewpager.*
 import kotlin.collections.ArrayList
 
 /**
@@ -43,7 +44,7 @@ class ViewPagerActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.ac_viewpager)
-        viewPager = findViewById<View>(viewpager) as ViewPager
+        viewPager = findViewById<View>(R.id.viewpager) as ViewPager
         iv_clip = findViewById<View>(R.id.iv_clip) as ImageView
         et_pwd = findViewById<View>(R.id.et_pwd) as EditText
 
@@ -69,7 +70,10 @@ class ViewPagerActivity : BaseActivity() {
 
             }
         })
+
+
     }
+
 
 
     private inner class MyViewPagerAdapter(private val list: List<Fragment>, fm: FragmentManager) : FragmentPagerAdapter(fm) {

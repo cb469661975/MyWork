@@ -10,16 +10,25 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.cheng.myapplication.R
 
+
 /**
  * Created by chengbiao on 2017/12/4.
  */
 class KotlinActivity : Activity(), View.OnClickListener {
 
     var id: Int = 100_201
+
+    val tag = "KotlinActivity"
+
     override fun onClick(p0: View?) {
         Toast.makeText(this, "哈哈哈哈${getName(null)}", Toast.LENGTH_LONG).show()
         var m: ModelTestKotlin = ModelTestKotlin()
         m.needPrind()
+
+//        ChildMoldelA().checkoutModel(SealedModel.ModelA)
+//        ChildMoldelA().checkoutModel(SealedModel.ModelB)
+//        ChildMoldelA().checkoutModel(SealedModel.ModelD)
+
     }
 
     lateinit var tv_click: TextView

@@ -24,7 +24,7 @@ class ScrollStartActivity : BaseActivity() {
     }
 
     fun onClickClipDrawable(v: View) {
-        startActivity(ViewPagerActivity::class.java)
+        startActivity(TestActivity::class.java)
     }
 
     fun onClickLotteanim(view: View) {
@@ -38,10 +38,16 @@ class ScrollStartActivity : BaseActivity() {
     fun onClickTest(view: View) {
         startActivity(TestActivity::class.java)
     }
+
     fun onClickWebview(view: View) {
         startActivity(WebActivity::class.java)
     }
+
     fun onClickTablayout(view: View) {
         startActivity(TabLayoutActivity::class.java)
+    }
+
+    fun onClickCoord(view: View) {
+        startActivity(CoordActivity::class.java)
     }
 }

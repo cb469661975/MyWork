@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tablayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:tabSelectedTextColor="@android:color/holo_orange_light"
-        app:tabTextColor="@color/colorPrimary"
         app:tabIndicatorColor="@android:color/holo_orange_light"
         app:tabIndicatorHeight="2dp"
         app:tabMode="scrollable"
-        />
-
+        app:tabSelectedTextColor="@android:color/holo_orange_light"
+        app:tabTextColor="@color/colorPrimary" />
 
 
     <android.support.v4.view.ViewPager
@@ -28,23 +26,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/clip_test" />
+
     <Button
-        android:onClick="onClickClip"
-        android:layout_width="wrap_content"
+        android:id="@+id/bt_change_level"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="changeLevle"
-        />
+        android:onClick="onClickClip"
+        android:background="#00ffff"
+        android:backgroundTint="#00ffff"
+        android:backgroundTintMode="src_over"
+        android:text="changeLevle" />
+
     <EditText
         android:id="@+id/et_pwd"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="111111"
         android:inputType="textPassword"
-        />
+        android:text="111111" />
+
     <Button
-        android:onClick="onClickChangeEtStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onClickChangeEtStatus"
         android:text="changeEditTest"
 
         />

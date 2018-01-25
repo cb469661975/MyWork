@@ -18,28 +18,39 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onClickCoord"
+            android:text="CoordinatorLayout" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:onClick="onClickClipDrawable"
             android:text="ClipDrawable" />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onClickLotteanim"
             android:text="LOTTEANIM" />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onClickKotlin"
             android:text="Kotlin" />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onClickTest"
             android:text="test" />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onClickWebview"
             android:text="webview" />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

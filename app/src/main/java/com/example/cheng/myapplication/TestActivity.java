@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 
 /**
  * Created by chengbiao on 2017/12/8.
@@ -17,10 +18,20 @@ public class TestActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test);
     }
-    public static void startActiv(Context context){
 
-        Intent intent=new Intent(context,TestActivity.class);
+    public static void startActiv(Context context) {
 
+        Intent intent = new Intent(context, TestActivity.class);
+
+    }
+
+
+    public void a(View v) {
+        v.bringToFront();
+    }
+
+    public void b(View v) {
+        v.bringToFront();
     }
 
 }

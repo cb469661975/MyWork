@@ -1,9 +1,14 @@
 package com.example.cheng.myapplication;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextUtils;
@@ -18,6 +23,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bigkoo.pickerview.TimePickerView;
+import com.example.cheng.myapplication.kotlin.Main;
+import com.example.cheng.myapplication.marqueevertical.MarqueeView;
 import com.example.cheng.myapplication.model.ChatGroupGlobalGiftModel;
 import com.example.cheng.myapplication.service.TestService;
 import com.example.cheng.myapplication.ui.AutoScrollTextView;
@@ -31,7 +38,9 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -59,20 +68,24 @@ public class MainActivity extends BaseActivity {
     private BannerPointView bannerPoint;
     private LinearLayout ll;
     private Subscription subscribe;
-    String as="abcdefjsonaaa";
+    String as = "abcdefjsonaaa";
+
+    private MarqueeView mMarqueeView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.i("MainActivity","a="+as.indexOf("json"));
-
-
+        Log.i("MainActivity", "a=" + as.indexOf("json"));
         leans_layout = (LeansLayout) findViewById(R.id.leans_layout);
         bannerPoint = (BannerPointView) findViewById(R.id.bannerPoint);
         worldnoticeview = (WorldNoticeView) findViewById(R.id.worldnoticeview);
         globalnotice = (GlobalNoticeView) findViewById(R.id.globalnotice);
         autoTextView = (AutoScrollTextView) findViewById(R.id.tv_text);
+        mMarqueeView = (MarqueeView) findViewById(R.id.mMarqueeView);
+
+
         ll = (LinearLayout) findViewById(R.id.ll);
 //        timePickerView= (TimePickerView) findViewById(R.id.timerpick);
         autoTextView.init(getWindowManager());
@@ -91,7 +104,6 @@ public class MainActivity extends BaseActivity {
             tv.setTextSize(30);
             tv.setText("position=" + i);
 
-            leans_layout.addChildView(tv);
         }
         initPickView();
         et_cardNumber = (EditText) findViewById(R.id.et_cardNumber);
@@ -116,7 +128,6 @@ public class MainActivity extends BaseActivity {
         }
         main();
     }
-
 
 
     public String getFromAssets(String fileName) {
@@ -186,7 +197,7 @@ public class MainActivity extends BaseActivity {
     public void onClickMain(View xc) {
         startActivity(new Intent(this, Main2Activity.class));
 //        startActivity(new Intent(this, RecycleViewActivity.class));
-        bannerPoint.setSelctPosiiton(bannerPoint.getPosition()+1);
+        bannerPoint.setSelctPosiiton(bannerPoint.getPosition() + 1);
         BannerPointView bannerPointView = getBannerPointView(this, 3);
         LinearLayout.LayoutParams l = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
@@ -206,6 +217,7 @@ public class MainActivity extends BaseActivity {
 //        }
         return view;
     }
+
     String TAG = "MainActivity";
 
     @Override
@@ -228,7 +240,7 @@ public class MainActivity extends BaseActivity {
 
     public void main() {
 
-         subscribe = Observable.create(new Observable.OnSubscribe<String>() {
+        subscribe = Observable.create(new Observable.OnSubscribe<String>() {
             @Override
             public void call(Subscriber<? super String> subscriber) {
 
@@ -251,6 +263,30 @@ public class MainActivity extends BaseActivity {
                     }
                 });
 
+        List<String> list = new ArrayList<>();
+        list.add("你是我的小熊啊哦小心哦");
+        list.add("你是我的小熊啊哦小心哦");
+        list.add("你是我的小熊啊哦小心哦");
+
+        mMarqueeView.startWithList(list);
+        mMarqueeView.setOnItemClickListener(new MarqueeView.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position, TextView textView) {
+                SharedPreferences sp = getSharedPreferences("mywhatbool", Context.MODE_PRIVATE);
+
+                if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CALL_PHONE}, 123);
+                    return;
+                } else {
+                    Toast.makeText(MainActivity.this, "poisiiton=" + sp.getString("what", "null"), Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+        SharedPreferences sp = getSharedPreferences("mywhatbool", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = sp.edit();
+        // 和Map<key, value>一样保存数据，取数据也是一样简单
+        edit.putString("what", "fashion" + new Random().nextInt(10));
+        edit.commit();
     }
 
     private String formatQureyCity(String city) {
@@ -329,22 +365,22 @@ public class MainActivity extends BaseActivity {
         bannerPoint.setCount(3);
 
         ChatGroupGlobalGiftModel chatGroupGlobalGiftModel = new ChatGroupGlobalGiftModel();
-        chatGroupGlobalGiftModel.giftName=new Random().nextInt()%2==0?"锥子大锥子":"锥子";
-        chatGroupGlobalGiftModel.receiverName=new Random().nextInt()%2==0?"我是个":"我是个asdasdasdasdasd";
-        chatGroupGlobalGiftModel.senderName=new Random().nextInt()%2==0?"我是第十个":"我是个asdasdasdasdasd";
-        chatGroupGlobalGiftModel.number=1023;
-        chatGroupGlobalGiftModel.httpGroupId="11";
+        chatGroupGlobalGiftModel.giftName = new Random().nextInt() % 2 == 0 ? "锥子大锥子" : "锥子";
+        chatGroupGlobalGiftModel.receiverName = new Random().nextInt() % 2 == 0 ? "我是个" : "我是个asdasdasdasdasd";
+        chatGroupGlobalGiftModel.senderName = new Random().nextInt() % 2 == 0 ? "我是第十个" : "我是个asdasdasdasdasd";
+        chatGroupGlobalGiftModel.number = 1023;
+        chatGroupGlobalGiftModel.httpGroupId = "11";
 
-        final long  start =System.currentTimeMillis();
+        final long start = System.currentTimeMillis();
         globalnotice.showNotice(chatGroupGlobalGiftModel, new IChatGroupGlobalGiftCallback() {
             @Override
             public void onGiftEndPlay() {
-            Log.i("onGiftEndPlay","onGiftEndPlay"+(System.currentTimeMillis()-start));
+                Log.i("onGiftEndPlay", "onGiftEndPlay" + (System.currentTimeMillis() - start));
             }
         });
     }
 
-    private void getModel(){
+    private void getModel() {
 
     }
 
@@ -357,5 +393,21 @@ public class MainActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         subscribe.unsubscribe();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 123) {
+            boolean isShow = true;
+            for (int i = 0; grantResults.length > i; i++) {
+                if (i != PackageManager.PERMISSION_GRANTED) {
+                    isShow = false;
+                    break;
+                }
+            }
+            Toast.makeText(MainActivity.this, isShow ? "授权成功" : "授权失败", Toast.LENGTH_LONG).show();
+
+        }
     }
 }

@@ -31,26 +31,26 @@ public class RecycleViewActivity extends Activity {
         recycleView = findViewById(R.id.recycleView);
         recycleView.setLayoutManager(new GridLayoutManager(this, 2));
         recycleView.addItemDecoration(new DividerGridItemDecoration(this));
-        recycleView.setAdapter(adapter = new RecyclerView.Adapter() {
-            @Override
-            public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-                return new YViewHolder(View.inflate(parent.getContext(), R.layout.item_recycle, null));
-            }
-
-            @Override
-            public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
-            }
-
-            @Override
-            public int getItemCount() {
-                return count;
-            }
-
-            class YViewHolder extends RecyclerView.ViewHolder {
-                public YViewHolder(View itemView) {
-                    super(itemView);
-                }
-            }
-        });
+//        recycleView.setAdapter(adapter = new RecyclerView.Adapter() {
+//            @Override
+//            public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+//                return new YViewHolder(View.inflate(parent.getContext(), R.layout.item_recycle, null));
+//            }
+//
+//            @Override
+//            public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+//            }
+//
+//            @Override
+//            public int getItemCount() {
+//                return count;
+//            }
+//
+//            class YViewHolder extends RecyclerView.ViewHolder {
+//                public YViewHolder(View itemView) {
+//                    super(itemView);
+//                }
+//            }
+//        });
     }
 }

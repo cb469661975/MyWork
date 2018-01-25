@@ -47,5 +47,7 @@
     <declare-styleable name="divider">
         <attr name="listDivider" format="reference"></attr>
     </declare-styleable>
-
+    <declare-styleable name="LeansLayout">
+        <attr name="roateWH" format="float"></attr>
+    </declare-styleable>
 </resources>

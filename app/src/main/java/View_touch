@@ -1,0 +1,6 @@
+1.dispatch
+    1,interceptTouchEvent
+        设置了返回true 表示拦下此事件 并且消费，否则调用子View的Dispatch
+    2,onTouchLinstener
+
+

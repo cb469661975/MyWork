@@ -13,4 +13,12 @@ class PersonKotlin : InterPerson {
 
     var name: String = ""
 
+    fun getPerseon() {
+
+    }
+
+    companion object {
+        var peson = PersonKotlin()
+    }
+
 }

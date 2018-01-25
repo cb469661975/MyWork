@@ -2,8 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="bottom"
-    android:clipChildren="false">
+    android:clipChildren="false"
+    android:gravity="bottom">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:onClick="a"
+            android:layout_marginTop="20dp"
+            android:background="#aaaaaaaa" />
+
+        <View
+            android:layout_width="@dimen/bibi_dimen_100"
+            android:layout_height="40dp"
+            android:onClick="b"
+            android:background="#0a0" />
+
+
+    </FrameLayout>
+
 
     <LinearLayout
         android:id="@+id/ll"
