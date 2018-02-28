@@ -91,7 +91,7 @@ public class PointDraw3View extends View {
                 if(current==currentValue){
                     return;
                 }else {
-                    Log.i("currentvalue",current+"--");
+//                    Log.i("currentvalue",current+"--");
                     currentValue=current;
                     invalidate();
                 }

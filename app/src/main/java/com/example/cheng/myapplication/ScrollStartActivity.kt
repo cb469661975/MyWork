@@ -2,8 +2,10 @@ package com.example.cheng.myapplication
 
 import android.os.Bundle
 import android.view.View
+import com.example.cheng.myapplication.kotlin.FragmentAcTest
 
 import com.example.cheng.myapplication.kotlin.KotlinActivity
+import com.example.cheng.myapplication.kotlin.TestFragmentTransActivity
 
 
 /**
@@ -49,5 +51,15 @@ class ScrollStartActivity : BaseActivity() {
 
     fun onClickCoord(view: View) {
         startActivity(CoordActivity::class.java)
+    }
+
+    fun onClickFragTestTras(view: View) {
+        startActivity(TestFragmentTransActivity::class.java)
+    }
+    fun testViewTracker(view: View) {
+        startActivity(TestViewTouchActivity::class.java)
+    }
+    fun onTestNestScroll(view: View) {
+        startActivity(TestNestScrollActivity::class.java)
     }
 }

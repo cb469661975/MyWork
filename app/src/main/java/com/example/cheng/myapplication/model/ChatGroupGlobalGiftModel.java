@@ -2,11 +2,13 @@ package com.example.cheng.myapplication.model;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
+import java.io.Serializable;
+
 /**
  * Created by yuanchao on 2017/11/3.
  */
 
-public class ChatGroupGlobalGiftModel {
+public class ChatGroupGlobalGiftModel implements Serializable {
 
     @JSONField(name = "target_group_id")
     public String httpGroupId;

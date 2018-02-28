@@ -26,6 +26,8 @@ import com.bigkoo.pickerview.TimePickerView;
 import com.example.cheng.myapplication.kotlin.Main;
 import com.example.cheng.myapplication.marqueevertical.MarqueeView;
 import com.example.cheng.myapplication.model.ChatGroupGlobalGiftModel;
+import com.example.cheng.myapplication.model.ShareBean;
+import com.example.cheng.myapplication.model.TestData;
 import com.example.cheng.myapplication.service.TestService;
 import com.example.cheng.myapplication.ui.AutoScrollTextView;
 import com.example.cheng.myapplication.ui.BannerPointView;
@@ -287,7 +289,24 @@ public class MainActivity extends BaseActivity {
         // 和Map<key, value>一样保存数据，取数据也是一样简单
         edit.putString("what", "fashion" + new Random().nextInt(10));
         edit.commit();
+
+        int b = 2;
+        String newStr = "newStr";
+        strOrg = newStr;
+        newStr = "newStr.add";
+        a = b;
+        b = 3;
+
+        ChatGroupGlobalGiftModel modelNew = new ChatGroupGlobalGiftModel();
+        modelOrg = modelNew;
+        modelNew.giftName = "收到了礼物";
+
+        Log.i("show_a", "a=" + a + ",modelOrg=" + modelOrg.giftName);
     }
+
+    private int a = 1;
+    private String strOrg = "origin";
+    private ChatGroupGlobalGiftModel modelOrg = null;
 
     private String formatQureyCity(String city) {
         String result = city;
@@ -362,6 +381,8 @@ public class MainActivity extends BaseActivity {
 //        worldnoticeview.show();
 //        autoTextView.init(getWindowManager());
 //        autoTextView.startScroll();
+
+        Toast.makeText(MainActivity.this, "我是修补匠", Toast.LENGTH_SHORT).show();
         bannerPoint.setCount(3);
 
         ChatGroupGlobalGiftModel chatGroupGlobalGiftModel = new ChatGroupGlobalGiftModel();
@@ -386,7 +407,13 @@ public class MainActivity extends BaseActivity {
 
     public void stop(View view) {
         autoTextView.stopScroll();
-        startActivity(ScrollStartActivity.class);
+//        startActivity(ScrollStartActivity.class);
+
+        startActivity(new Intent(MainActivity.this,ScrollStartActivity.class)
+//        .putExtra("testData",new TestData(new ChatGroupGlobalGiftModel(),new ShareBean()))
+        );
+
+
     }
 
     @Override

@@ -56,6 +56,23 @@
             android:layout_height="wrap_content"
             android:onClick="onClickTablayout"
             android:text="tablayout" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickFragTestTras"
+            android:text="onClickFragTestTras" />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="testViewTracker"
+            android:text="onTestViewTracker" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onTestNestScroll"
+            android:text="onTestNestScroll" />
 
     </LinearLayout>
 </ScrollView>
