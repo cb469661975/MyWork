@@ -21,6 +21,7 @@
     <style name="DialogLight" parent="Theme.AppCompat.Light">
         <item name="android:alertDialogTheme">@style/TPLightDialog</item>
     </style>
+
     <style name="BackgroundWithAnimation" parent="DialogLight">
         <item name="android:windowAnimationStyle">@style/activity_normal_animation</item>
         <item name="android:windowNoTitle">true</item>
@@ -28,10 +29,22 @@
     </style>
 
     <style name="TPLightDialog" parent="Theme.AppCompat.Light.Dialog.Alert"></style>
+
     <style name="activity_normal_animation">
         <item name="android:activityOpenEnterAnimation">@anim/bibi_slide_right_in</item>
         <item name="android:activityOpenExitAnimation">@anim/bibi_slide_left_out</item>
         <item name="android:activityCloseEnterAnimation">@anim/bibi_slide_left_in</item>
         <item name="android:activityCloseExitAnimation">@anim/bibi_slide_right_out</item>
     </style>
+
+    <declare-styleable name="GifWidget">
+        <attr name="gifs" format="reference" />
+        <attr name="pauseds" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomTheme">
+        <attr name="gifViewStyle" format="reference" />
+    </declare-styleable>
+
+    <style name="Widget.GifView" parent="@android:style/Widget" />
 </resources>

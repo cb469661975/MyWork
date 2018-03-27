@@ -40,6 +40,12 @@ class ViewPagerActivity : BaseActivity() {
     var tabLayout: TableLayout? = null
 
     var titles = arrayOf("我的", "我的你的", "我", "大家有空来")
+    private val test1Fragment by lazy {
+        TestFragment1()
+    }
+    private val test2Fragment by lazy {
+        TestFragment2()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,11 +55,13 @@ class ViewPagerActivity : BaseActivity() {
         et_pwd = findViewById<View>(R.id.et_pwd) as EditText
 
         listFragmemt = ArrayList()
-        listFragmemt!!.add(TestFragment1())
-        listFragmemt!!.add(TestFragment2())
+        listFragmemt!!.add(test1Fragment)
+        listFragmemt!!.add(test2Fragment)
         listFragmemt!!.add(TestFragment3())
 
-
+        test1Fragment.setCallBack {
+            test2Fragment.setTextView("Fragment 居然发生改变了")
+        }
 
         viewPager!!.adapter = MyViewPagerAdapter(listFragmemt as ArrayList<Fragment>, supportFragmentManager)
         viewPager!!.currentItem = 1
@@ -73,7 +81,6 @@ class ViewPagerActivity : BaseActivity() {
 
 
     }
-
 
 
     private inner class MyViewPagerAdapter(private val list: List<Fragment>, fm: FragmentManager) : FragmentPagerAdapter(fm) {

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.example.cheng.myapplication.factorymodel.View1;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -20,7 +22,19 @@ public class ExampleInstrumentedTest {
     public void useAppContext() throws Exception {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
-
         assertEquals("com.example.cheng.myapplication", appContext.getPackageName());
+        //我们不知道这个框架中有什么东西都的  不知懂啊调用曾
+//        对象的产生过程，叫做最少知识原则
+
+    }
+
+    /**
+     * 最少知识原则，
+     *
+     * @param args
+     */
+
+    public static void main(String[]args){
+
     }
 }

@@ -416,6 +416,17 @@ public class MainActivity extends BaseActivity {
 
     }
 
+//    @Override
+//    protected void onPostResume() {
+//        super.onPostResume();
+//
+//    }
+//
+//    @Override
+//    protected void onResumeFragments() {
+//        super.onResumeFragments();
+//    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

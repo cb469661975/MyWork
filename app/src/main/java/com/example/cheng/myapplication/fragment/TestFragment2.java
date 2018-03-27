@@ -16,6 +16,8 @@ import com.example.cheng.myapplication.BaseFragment;
  */
 
 public class TestFragment2 extends BasePageFragment {
+    private TextView tv;
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -25,7 +27,7 @@ public class TestFragment2 extends BasePageFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        TextView tv = new TextView(getActivity());
+        tv = new TextView(getActivity());
         tv.setText(this.getClass().getSimpleName());
         tv.setTextSize(30);
         return tv;
@@ -46,5 +48,11 @@ public class TestFragment2 extends BasePageFragment {
     @Override
     public void fetchData() {
         Log.i("BASE_LOG", this.getClass().getSimpleName() + ",fetchData=" + "fetchData");
+    }
+
+    public void setTextView(String s) {
+        if (tv != null) {
+            tv.setText(s);
+        }
     }
 }

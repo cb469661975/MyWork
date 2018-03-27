@@ -26,6 +26,8 @@ import android.widget.TextView;
 import android.widget.ViewFlipper;
 import android.widget.ViewSwitcher;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.cheng.myapplication.adapter.GiftVipAdapter;
 import com.example.cheng.myapplication.net.HttpUtil;
 import com.example.cheng.myapplication.net.IRequestCallBack;
@@ -91,8 +93,12 @@ public class Main2Activity extends Activity implements ViewSwitcher.ViewFactory,
             Log.i("aaaa", "bbbbbb");
         }
 //        doMemory();
-
-
+        ImageView iv_gif = findViewById(R.id.iv_gif);
+//        Glide.with(this).load(R.drawable.feeds_loading).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(iv_gif);
+        Glide.with(this).load(R.drawable.pull_up).into(iv_gif);
+        ImageView iv_gif2 = findViewById(R.id.iv_gif2);
+//        Glide.with(this).load(R.drawable.pull_up_pic).into(iv_gif2);
+        Glide.with(this).load(R.drawable.pull_up).into(iv_gif2);
     }
 
 //    private void doMemory() {

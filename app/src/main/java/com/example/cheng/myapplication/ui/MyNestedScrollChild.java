@@ -54,7 +54,7 @@ public class MyNestedScrollChild extends LinearLayout implements NestedScrolling
                 int y = (int) (e.getRawY());
                 int dy = y - lastY;
                 lastY = y;
-
+                    //..开始竖直方向的滚动
                 if (startNestedScroll(ViewCompat.SCROLL_AXIS_VERTICAL) //如果找到了支持嵌套滚动的父类
                         && dispatchNestedPreScroll(0, dy, consumed, offset)) {//父类进行了一部分滚动
 

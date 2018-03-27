@@ -18,6 +18,8 @@ import com.example.cheng.myapplication.manager.TimeCountManager;
 
 public class TestFragmentTransActivity extends BaseActivity implements ITimeCount {
 
+    private TestFragment1 testFragment1;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +48,14 @@ public class TestFragmentTransActivity extends BaseActivity implements ITimeCoun
     }
 
     private void addFragment() {
-        getSupportFragmentManager().beginTransaction().add(R.id.framelayout, new TestFragment1(), TestFragment1.TAG).commit();
+        testFragment1 = new TestFragment1();
+        testFragment1.setCallBack(new TestFragment1.CallBack() {
+            @Override
+            public void callTest() {
+                //在这里处理你的Fragment回调逻辑。
+            }
+        });
+        getSupportFragmentManager().beginTransaction().add(R.id.framelayout, testFragment1, TestFragment1.TAG).commit();
     }
 
     @Override

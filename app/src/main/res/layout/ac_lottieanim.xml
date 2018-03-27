@@ -45,6 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
+            android:visibility="gone"
             android:src="@mipmap/bg1" />
 
         <com.airbnb.lottie.LottieAnimationView
@@ -53,7 +54,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             app:lottie_autoPlay="true"
-            app:lottie_fileName="data.json"
+            app:lottie_fileName="mini_profile_love_forever.json"
             app:lottie_imageAssetsFolder="images"
             app:lottie_loop="true" />
     </FrameLayout>

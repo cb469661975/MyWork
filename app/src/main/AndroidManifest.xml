@@ -65,6 +65,7 @@
         <activity android:name=".kotlin.TestFragmentTransActivity"></activity>
         <activity android:name=".TestViewTouchActivity"></activity>
         <activity android:name=".TestNestScrollActivity"></activity>
+        <activity android:name=".TestWebActivity"></activity>
     </application>
 
 </manifest>

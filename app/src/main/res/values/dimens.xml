@@ -4,4 +4,12 @@
     <dimen name="bibi_dimen_15">15dp</dimen>
     <dimen name="bibi_dimen_30">30dp</dimen>
     <dimen name="bibi_dimen_100">100dp</dimen>
+    <dimen name="pull_height" >80dp</dimen>
+    <dimen name="pull_width">100dp</dimen>
+    <dimen name="pull_gif_wd">60dp</dimen>
+    <!-- 此处是 动画下落以后 的 -->
+    <dimen name="pull_gif_leve">20dp</dimen>
+    <!-- 此处 只用来 手动下拉 移位-->
+    <dimen name="pull_gif_leve_1">13dp</dimen>
+
 </resources>

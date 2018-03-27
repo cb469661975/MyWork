@@ -4,6 +4,13 @@
     android:layout_height="match_parent"
     android:clipChildren="false"
     android:gravity="bottom">
+    <TextView
+        android:id="@+id/tv_clock"
+        android:layout_width="wrap_content"
+        android:textSize="20sp"
+        android:layout_height="wrap_content"
+        android:text="clockShow"
+        />
 
     <FrameLayout
         android:layout_width="match_parent"

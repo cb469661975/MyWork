@@ -22,8 +22,8 @@ import com.example.cheng.myapplication.util.OnDoubleClickListener;
 public class TestFragment1 extends BasePageFragment {
 
     public static final String TAG = TestFragment1.class.getSimpleName();
-    public static final String Fun_NO_PARAMS_RESULT = TestFragment1.class.getSimpleName()+"_NPNR";
-    private Functions functions ;
+    public static final String Fun_NO_PARAMS_RESULT = TestFragment1.class.getSimpleName() + "_NPNR";
+    private Functions functions;
 
     private TestFragmentTransActivity mActivity;
 
@@ -55,8 +55,9 @@ public class TestFragment1 extends BasePageFragment {
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("Fun_NO_PARAMS_RESULT","click-Fun_NO_PARAMS_RESULT");
-                functions.invokeFunction(Fun_NO_PARAMS_RESULT);
+                Log.i("Fun_NO_PARAMS_RESULT", "click-Fun_NO_PARAMS_RESULT");
+//                functions.invokeFunction(Fun_NO_PARAMS_RESULT);
+                callBack.callTest();
             }
         });
 
@@ -79,4 +80,16 @@ public class TestFragment1 extends BasePageFragment {
     public void fetchData() {
         Log.i("BASE_LOG", this.getClass().getSimpleName() + ",fetchData=" + "fetchData");
     }
+
+
+    private CallBack callBack;
+
+    public void setCallBack(CallBack callBack) {
+        this.callBack = callBack;
+    }
+
+    public interface CallBack {
+        public void callTest();
+    }
 }
+

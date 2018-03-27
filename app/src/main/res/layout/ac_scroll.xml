@@ -9,6 +9,33 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_t1"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#aaaa"
+                android:gravity="center"
+                android:onClick="onClickAnimShow"
+                android:text="show——what.." />
+
+            <TextView
+                android:id="@+id/tv_show"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/tv_t1"
+                android:background="#bbb"
+                android:gravity="center"
+                android:text="show——what.."
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,6 +83,7 @@
             android:layout_height="wrap_content"
             android:onClick="onClickTablayout"
             android:text="tablayout" />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,11 +96,18 @@
             android:layout_height="wrap_content"
             android:onClick="testViewTracker"
             android:text="onTestViewTracker" />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onTestNestScroll"
             android:text="onTestNestScroll" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onWebJs"
+            android:text="onWebJs" />
 
     </LinearLayout>
 </ScrollView>

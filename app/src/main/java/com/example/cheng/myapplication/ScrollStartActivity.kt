@@ -1,11 +1,15 @@
 package com.example.cheng.myapplication
 
+import android.animation.Animator
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.View
-import com.example.cheng.myapplication.kotlin.FragmentAcTest
+import android.view.animation.LinearInterpolator
+import com.example.cheng.myapplication.exentions.dp2px
 
 import com.example.cheng.myapplication.kotlin.KotlinActivity
 import com.example.cheng.myapplication.kotlin.TestFragmentTransActivity
+import kotlinx.android.synthetic.main.ac_scroll.*
 
 
 /**
@@ -20,6 +24,55 @@ class ScrollStartActivity : BaseActivity() {
 
     }
 
+    var isShow = false
+    var isAnim = false
+    fun onClickAnimShow(v: View) {
+        if (!isShow && !isAnim) {
+            isShow = !isShow
+            isAnim = true
+
+            var movey = if (isShow) 50f else -50f
+            val animator = ObjectAnimator.ofFloat(tv_show, "translationY", -dp2px(50f).toFloat(), 0f)
+            animator.duration = 400
+            animator.interpolator = LinearInterpolator()
+            animator.start()
+            animator.addListener(object : Animator.AnimatorListener {
+                override fun onAnimationEnd(animation: Animator?) {
+                    isAnim = false; tv_show.visibility = View.VISIBLE
+                }
+
+                override fun onAnimationRepeat(animation: Animator?) {
+                }
+
+                override fun onAnimationCancel(animation: Animator?) {
+                }
+
+                override fun onAnimationStart(animation: Animator?) {
+                }
+            })
+        } else {
+            isShow = !isShow
+            val animator = ObjectAnimator.ofFloat(tv_show, "translationY", 0f, -dp2px(50f).toFloat())
+            animator.duration = 400
+            animator.interpolator = LinearInterpolator()
+            animator.start()
+            animator.addListener(object : Animator.AnimatorListener {
+                override fun onAnimationEnd(animation: Animator?) {
+                    isAnim = false
+                    tv_show.visibility = View.GONE
+                }
+
+                override fun onAnimationRepeat(animation: Animator?) {
+                }
+
+                override fun onAnimationCancel(animation: Animator?) {
+                }
+
+                override fun onAnimationStart(animation: Animator?) {
+                }
+            })
+        }
+    }
 
     fun onClickViewPager(v: View) {
         startActivity(ViewPagerActivity::class.java)
@@ -56,10 +109,16 @@ class ScrollStartActivity : BaseActivity() {
     fun onClickFragTestTras(view: View) {
         startActivity(TestFragmentTransActivity::class.java)
     }
+
     fun testViewTracker(view: View) {
         startActivity(TestViewTouchActivity::class.java)
     }
+
     fun onTestNestScroll(view: View) {
         startActivity(TestNestScrollActivity::class.java)
+    }
+
+    fun onWebJs(view: View) {
+        startActivity(TestWebActivity::class.java)
     }
 }

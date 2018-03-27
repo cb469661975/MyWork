@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context="com.example.cheng.myapplication.MainActivity">
 
+
     <com.example.cheng.myapplication.ui.PointDraw3View
         android:layout_width="30dp"
         android:layout_height="30dp"
