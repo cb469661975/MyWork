@@ -1,6 +1,7 @@
 package com.example.cheng.myapplication;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,6 +16,7 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -73,6 +75,7 @@ public class MainActivity extends BaseActivity {
     String as = "abcdefjsonaaa";
 
     private MarqueeView mMarqueeView;
+    private TextView tv_123;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +89,7 @@ public class MainActivity extends BaseActivity {
         globalnotice = (GlobalNoticeView) findViewById(R.id.globalnotice);
         autoTextView = (AutoScrollTextView) findViewById(R.id.tv_text);
         mMarqueeView = (MarqueeView) findViewById(R.id.mMarqueeView);
+        tv_123 =  findViewById(R.id.tv_123);
 
 
         ll = (LinearLayout) findViewById(R.id.ll);
@@ -129,6 +133,30 @@ public class MainActivity extends BaseActivity {
             e.printStackTrace();
         }
         main();
+        initDrawaleTouch();
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private void initDrawaleTouch() {
+        tv_123.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (tv_123.getCompoundDrawables()[2] != null) {
+
+                        boolean touchable = event.getX() > (v.getWidth() - tv_123.getTotalPaddingRight())
+                                && (event.getX() < ((tv_123.getWidth() - tv_123.getPaddingRight())));
+                        if (touchable) {
+                            Toast.makeText(v.getContext(),"dianjidap",Toast.LENGTH_LONG).show();
+                            Log.d("aasdasdasda","asdadadad");
+
+                        }
+                    }
+                }
+
+                return false;
+            }
+        });
     }
 
 

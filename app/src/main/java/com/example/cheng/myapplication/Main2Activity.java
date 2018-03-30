@@ -3,6 +3,7 @@ package com.example.cheng.myapplication;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.TypeEvaluator;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -23,6 +24,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 import android.widget.ViewSwitcher;
 
@@ -57,6 +59,7 @@ public class Main2Activity extends Activity implements ViewSwitcher.ViewFactory,
     private String[] arrayTexts = {"文本01", "文本02", "文本03", "文本04"};
     private float touchDownX;
     private int textIndex;
+    private TextView tv_drawableRight;
     private float touchUpX;
     //    private WorldNoticeView worldnoticeview;
     private MarqueeView2 mMarqueeView;
@@ -77,6 +80,7 @@ public class Main2Activity extends Activity implements ViewSwitcher.ViewFactory,
         textswitcher = (TextSwitcher) findViewById(R.id.textswitcher);
         mMarqueeView = (MarqueeView2) findViewById(R.id.mMarqueeView);
         marqueeText = (MarqueeText) findViewById(R.id.marqueetest);
+        tv_drawableRight = (TextView) findViewById(R.id.tv_drawableRight);
         viewpager = (ViewPager) findViewById(R.id.viewpager);
         Log.i(TAG, "onCreate");
         initData();
@@ -99,6 +103,13 @@ public class Main2Activity extends Activity implements ViewSwitcher.ViewFactory,
         ImageView iv_gif2 = findViewById(R.id.iv_gif2);
 //        Glide.with(this).load(R.drawable.pull_up_pic).into(iv_gif2);
         Glide.with(this).load(R.drawable.pull_up).into(iv_gif2);
+        inittv_drawableRight();
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private void inittv_drawableRight() {
+
+
     }
 
 //    private void doMemory() {

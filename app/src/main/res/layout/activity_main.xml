@@ -106,6 +106,7 @@
         android:visibility="gone" />
 
     <TextView
+        android:id="@+id/tv_123"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:ellipsize="marquee"
@@ -113,6 +114,7 @@
         android:focusable="true"
         android:requiresFadingEdge="horizontal"
         android:singleLine="true"
+        android:drawableRight="@mipmap/ic_launcher"
         android:text="123123123121231231231312312" />
 
     <com.example.cheng.myapplication.ui.WaveView
