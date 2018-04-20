@@ -108,6 +108,11 @@
             android:layout_height="wrap_content"
             android:onClick="onWebJs"
             android:text="onWebJs" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onPlugin"
+            android:text="Plugin" />
 
     </LinearLayout>
 </ScrollView>

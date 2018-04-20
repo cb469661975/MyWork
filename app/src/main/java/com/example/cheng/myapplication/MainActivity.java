@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 import com.bigkoo.pickerview.TimePickerView;
 import com.example.cheng.myapplication.kotlin.Main;
+import com.example.cheng.myapplication.kotlin.TestDialogFragment;
 import com.example.cheng.myapplication.marqueevertical.MarqueeView;
 import com.example.cheng.myapplication.model.ChatGroupGlobalGiftModel;
 import com.example.cheng.myapplication.model.ShareBean;
@@ -89,7 +90,7 @@ public class MainActivity extends BaseActivity {
         globalnotice = (GlobalNoticeView) findViewById(R.id.globalnotice);
         autoTextView = (AutoScrollTextView) findViewById(R.id.tv_text);
         mMarqueeView = (MarqueeView) findViewById(R.id.mMarqueeView);
-        tv_123 =  findViewById(R.id.tv_123);
+        tv_123 = findViewById(R.id.tv_123);
 
 
         ll = (LinearLayout) findViewById(R.id.ll);
@@ -114,13 +115,13 @@ public class MainActivity extends BaseActivity {
         initPickView();
         et_cardNumber = (EditText) findViewById(R.id.et_cardNumber);
 //        et_cardNumber.addTextChangedListener(watcher);
-        InputFilter[] filters = {new TextLengthFilter(30, new TextLengthFilter.ToastCall() {
-            @Override
-            public void toast() {
-                Toast.makeText(MainActivity.this, "超过了", Toast.LENGTH_SHORT).show();
-            }
-        })};
-        et_cardNumber.setFilters(filters);
+//        InputFilter[] filters = {new TextLengthFilter(30, new TextLengthFilter.ToastCall() {
+//            @Override
+//            public void toast() {
+//                Toast.makeText(MainActivity.this, "超过了", Toast.LENGTH_SHORT).show();
+//            }
+//        })};
+//        et_cardNumber.setFilters(filters);
 
 
         vvv = (LivingHintView) findViewById(R.id.vvv);
@@ -133,7 +134,22 @@ public class MainActivity extends BaseActivity {
             e.printStackTrace();
         }
         main();
-        initDrawaleTouch();
+//        initDrawaleTouch();
+        initListTest();
+    }
+
+    List<String> list = new ArrayList<>();
+
+    private void initListTest() {
+        list.add("asd0");
+        list.add("asd1");
+        list.add("asd2");
+
+        list.add(1, "change1 ");
+
+        for (int i = 0; i < list.size(); i++) {
+        Log.i("list_index",list.get(i));
+        }
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -147,8 +163,8 @@ public class MainActivity extends BaseActivity {
                         boolean touchable = event.getX() > (v.getWidth() - tv_123.getTotalPaddingRight())
                                 && (event.getX() < ((tv_123.getWidth() - tv_123.getPaddingRight())));
                         if (touchable) {
-                            Toast.makeText(v.getContext(),"dianjidap",Toast.LENGTH_LONG).show();
-                            Log.d("aasdasdasda","asdadadad");
+                            Toast.makeText(v.getContext(), "dianjidap", Toast.LENGTH_LONG).show();
+                            Log.d("aasdasdasda", "asdadadad");
 
                         }
                     }
@@ -225,16 +241,19 @@ public class MainActivity extends BaseActivity {
     }
 
     public void onClickMain(View xc) {
-        startActivity(new Intent(this, Main2Activity.class));
+
+         new TestDialogFragment().show(getFragmentManager(),"testDialog");
+
+//        startActivity(new Intent(this, Main2Activity.class));
 //        startActivity(new Intent(this, RecycleViewActivity.class));
-        bannerPoint.setSelctPosiiton(bannerPoint.getPosition() + 1);
-        BannerPointView bannerPointView = getBannerPointView(this, 3);
-        LinearLayout.LayoutParams l = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-        );
-        l.gravity = Gravity.CENTER_HORIZONTAL;
-        ll.addView(bannerPointView, l);
+//        bannerPoint.setSelctPosiiton(bannerPoint.getPosition() + 1);
+//        BannerPointView bannerPointView = getBannerPointView(this, 3);
+//        LinearLayout.LayoutParams l = new LinearLayout.LayoutParams(
+//                ViewGroup.LayoutParams.MATCH_PARENT,
+//                ViewGroup.LayoutParams.WRAP_CONTENT
+//        );
+//        l.gravity = Gravity.CENTER_HORIZONTAL;
+//        ll.addView(bannerPointView, l);
 
     }
 
@@ -437,7 +456,7 @@ public class MainActivity extends BaseActivity {
         autoTextView.stopScroll();
 //        startActivity(ScrollStartActivity.class);
 
-        startActivity(new Intent(MainActivity.this,ScrollStartActivity.class)
+        startActivity(new Intent(MainActivity.this, ScrollStartActivity.class)
 //        .putExtra("testData",new TestData(new ChatGroupGlobalGiftModel(),new ShareBean()))
         );
 

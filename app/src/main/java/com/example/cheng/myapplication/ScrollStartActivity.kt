@@ -9,6 +9,7 @@ import com.example.cheng.myapplication.exentions.dp2px
 
 import com.example.cheng.myapplication.kotlin.KotlinActivity
 import com.example.cheng.myapplication.kotlin.TestFragmentTransActivity
+import com.example.cheng.myapplication.plugin.PluginActivity
 import kotlinx.android.synthetic.main.ac_scroll.*
 
 
@@ -120,5 +121,8 @@ class ScrollStartActivity : BaseActivity() {
 
     fun onWebJs(view: View) {
         startActivity(TestWebActivity::class.java)
+    }
+    fun onPlugin(view: View) {
+        startActivity(PluginActivity::class.java)
     }
 }

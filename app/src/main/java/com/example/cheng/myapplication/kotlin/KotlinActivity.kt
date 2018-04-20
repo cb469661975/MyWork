@@ -28,7 +28,20 @@ class KotlinActivity : Activity(), View.OnClickListener {
 //        ChildMoldelA().checkoutModel(SealedModel.ModelA)
 //        ChildMoldelA().checkoutModel(SealedModel.ModelB)
 //        ChildMoldelA().checkoutModel(SealedModel.ModelD)
+        showTest()
+    }
 
+    private fun showTest() {
+
+        test1ParamsM(1)
+        ::testNoParamsM
+    }
+
+    var testNoParamsM = fun() {
+            Log.i("testNoParamsM", "type=====testNoParamsM")
+    }
+    var test1ParamsM = fun(type: Int) {
+        Log.i("test1ParamsM", "type$type")
     }
 
     lateinit var tv_click: TextView

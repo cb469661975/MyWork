@@ -66,6 +66,8 @@
         <activity android:name=".TestViewTouchActivity"></activity>
         <activity android:name=".TestNestScrollActivity"></activity>
         <activity android:name=".TestWebActivity"></activity>
+        <activity android:name=".plugin.PluginActivity"></activity>
+        <activity android:name=".plugin.chazhuang.ProxyActivity"></activity>
     </application>
 
 </manifest>
