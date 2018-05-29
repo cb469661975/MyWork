@@ -1,11 +1,11 @@
 package com.example.cheng.myapplication.plugin;
 
 import android.Manifest;
-import android.app.Activity;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.AssetManager;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -16,25 +16,28 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.cheng.myapplication.R;
 import com.example.cheng.myapplication.plugin.chazhuang.PluginManager;
 import com.example.cheng.myapplication.plugin.chazhuang.ProxyActivity;
-import com.example.cheng.myapplication.util.FileUtil;
-import com.tencent.tinker.android.dex.util.FileUtils;
+
+
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by chengbiao on 2018/4/19.
  */
-public class PluginActivity extends Activity {
+public class PluginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,40 +75,38 @@ public class PluginActivity extends Activity {
     }
 
     public void loadPlugin() {
-        File fileDir = getDir("plugin", Context.MODE_PRIVATE);
-        String apkName = "testplugin-debug.apk";
-        log("fileDir",fileDir.getAbsolutePath());
-
-        String filePath = new File(fileDir, apkName).getAbsolutePath();
+        File filesDir = this.getDir("plugin", Context.MODE_PRIVATE);
+        String name = "testplugin-debug.apk";
+        String filePath = new File(filesDir, name).getAbsolutePath();
         File file = new File(filePath);
-        log(filePath);
         if (file.exists()) {
             file.delete();
         }
-
         InputStream is = null;
-        OutputStream os = null;
+        FileOutputStream os = null;
         try {
-            is = new FileInputStream(new File(Environment.getExternalStorageDirectory()+File.separator+"plugin", apkName).getAbsolutePath());
+            Log.i(TAG, "加载插件 " + new File(Environment.getExternalStorageDirectory(), name).getAbsolutePath());
+            is = new FileInputStream(new File(Environment.getExternalStorageDirectory()+File.separator+"plugin", name));
             os = new FileOutputStream(filePath);
             int len = 0;
-            byte[] readArray = new byte[1024];
-
-            while ((len = is.read(readArray)) != -1) {
-                os.write(readArray, 0, len);
+            byte[] buffer = new byte[1024];
+            while ((len = is.read(buffer)) != -1) {
+                os.write(buffer, 0, len);
+            }
+            File f = new File(filePath);
+            if (f.exists()) {
+                Toast.makeText(this, "dex overwrite", Toast.LENGTH_SHORT).show();
             }
             PluginManager.getInstance().loadPath(this);
-        } catch (Exception e) {
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         } finally {
             try {
-                if(is!=null){
-                    is.close();
-                }
-                if(os!=null){
-                    os.close();
-                }
+                os.close();
+                is.close();
             } catch (IOException e) {
+                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }

@@ -3,14 +3,15 @@ package com.example.cheng.myapplication;
 import android.app.Application;
 import android.content.Context;
 
-import com.tencent.tinker.loader.app.TinkerApplication;
-import com.tencent.tinker.loader.shareutil.ShareConstants;
+import com.example.cheng.myapplication.jsbridge.vassonic.HostSonicRuntime;
+import com.tencent.sonic.sdk.SonicConfig;
+import com.tencent.sonic.sdk.SonicEngine;
 
 /**
  * Created by biao.cheng on 2017/9/14.
  */
 
-public class MyApplication extends TinkerApplication {
+public class MyApplication extends Application {
 
     public static Context mContext;
 
@@ -18,11 +19,8 @@ public class MyApplication extends TinkerApplication {
     public void onCreate() {
         super.onCreate();
         mContext = this;
-    }
-
-    public MyApplication() {
-        //com.example.cheng.myapplication.SampleApplicationLike
-        super(ShareConstants.TINKER_ENABLE_ALL, "com.example.cheng.myapplication.SampleApplicationLike",
-                "com.tencent.tinker.loader.TinkerLoader", false);
+        if (!SonicEngine.isGetInstanceAllowed()) {
+            SonicEngine.createInstance(new HostSonicRuntime(this), new SonicConfig.Builder().build());
+        }
     }
 }

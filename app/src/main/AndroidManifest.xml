@@ -16,6 +16,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -58,7 +59,9 @@
         <activity android:name=".LottieActivity" />
         <activity android:name=".kotlin.KotlinActivity" />
         <activity android:name=".TestActivity"></activity>
-        <activity android:name=".WebActivity"></activity>
+        <activity android:name=".WebActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            ></activity>
         <activity android:name=".TabLayoutActivity"></activity>
         <activity android:name=".CoordActivity"></activity>
         <activity android:name=".kotlin.FragmentAcTest"></activity>
@@ -68,6 +71,7 @@
         <activity android:name=".TestWebActivity"></activity>
         <activity android:name=".plugin.PluginActivity"></activity>
         <activity android:name=".plugin.chazhuang.ProxyActivity"></activity>
+        <activity android:name=".proxy.ProxyActivity"></activity>
     </application>
 
 </manifest>

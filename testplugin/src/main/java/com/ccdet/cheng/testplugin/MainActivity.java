@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 /**
@@ -40,5 +43,20 @@ public class MainActivity extends BaseActivity {
                 Toast.makeText(context, "show--2222---", Toast.LENGTH_LONG).show();
             }
         });
+        findViewById(R.id.iv_touch).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.i("touch", "touch==" + event.toString());
+                return false;
+            }
+        });
     }
+
+    void main(WebView view){
+
+        view.setWebViewClient(new WebViewClient());
+    }
+
+
+
 }

@@ -20,7 +20,7 @@ class KotlinRecycleAdapter : RecyclerView.Adapter<KotlinRecycleAdapter.MyViewHol
 
 
     override fun getItemCount(): Int {
-        return 15
+        return 10
     }
 
 

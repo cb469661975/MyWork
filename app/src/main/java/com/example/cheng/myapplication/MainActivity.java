@@ -8,8 +8,10 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextUtils;
@@ -25,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bigkoo.pickerview.TimePickerView;
+import com.example.cheng.myapplication.httptest.TestSocket;
 import com.example.cheng.myapplication.kotlin.Main;
 import com.example.cheng.myapplication.kotlin.TestDialogFragment;
 import com.example.cheng.myapplication.marqueevertical.MarqueeView;
@@ -35,6 +38,7 @@ import com.example.cheng.myapplication.service.TestService;
 import com.example.cheng.myapplication.ui.AutoScrollTextView;
 import com.example.cheng.myapplication.ui.BannerPointView;
 import com.example.cheng.myapplication.ui.WorldNoticeView;
+import com.example.cheng.myapplication.util.FileUtil;
 import com.example.cheng.myapplication.util.TestKotlinUtils;
 import com.example.cheng.myapplication.util.TextLengthFilter;
 
@@ -42,13 +46,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.security.Permission;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import rx.Observable;
 import rx.Observer;
 import rx.Scheduler;
@@ -68,7 +83,7 @@ public class MainActivity extends BaseActivity {
     private WorldNoticeView worldnoticeview;
 
     private JSONObject jsonObject1;
-    private AutoScrollTextView autoTextView;
+//    private AutoScrollTextView autoTextView;
     private GlobalNoticeView globalnotice;
     private BannerPointView bannerPoint;
     private LinearLayout ll;
@@ -88,14 +103,14 @@ public class MainActivity extends BaseActivity {
         bannerPoint = (BannerPointView) findViewById(R.id.bannerPoint);
         worldnoticeview = (WorldNoticeView) findViewById(R.id.worldnoticeview);
         globalnotice = (GlobalNoticeView) findViewById(R.id.globalnotice);
-        autoTextView = (AutoScrollTextView) findViewById(R.id.tv_text);
+//        autoTextView = (AutoScrollTextView) findViewById(R.id.tv_text);
         mMarqueeView = (MarqueeView) findViewById(R.id.mMarqueeView);
         tv_123 = findViewById(R.id.tv_123);
 
 
         ll = (LinearLayout) findViewById(R.id.ll);
 //        timePickerView= (TimePickerView) findViewById(R.id.timerpick);
-        autoTextView.init(getWindowManager());
+//        autoTextView.init(getWindowManager());
         Log.i(TAG, "onCreate");
         String SS = "  {\"is_ios\": false, \"timestamp\": \"1508303716\", \"err_msg\": \"\", \"result\": {}, \"req_id\": 0, \"result_code\": 2000}";
 
@@ -136,6 +151,30 @@ public class MainActivity extends BaseActivity {
         main();
 //        initDrawaleTouch();
         initListTest();
+        try {
+            new TestSocket().testHttps(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        showLinkedHashMap();
+    }
+    int size =12;
+    private void showLinkedHashMap() {
+        LinkedHashMap<String,String> linkedHashMap = new LinkedHashMap<>(12,0.75f,false);
+        for (int i = 0; i <size ; i++) {
+            linkedHashMap.put("i+"+i,"value+"+i);
+        }
+        Collection<String> values = linkedHashMap.values();
+        Iterator<String> iterator = values.iterator();
+
+        while (iterator.hasNext()){
+            String next = iterator.next();
+            Log.i("showLinkedHashMap",next);
+        }
+
+
+
+
     }
 
     List<String> list = new ArrayList<>();
@@ -148,7 +187,7 @@ public class MainActivity extends BaseActivity {
         list.add(1, "change1 ");
 
         for (int i = 0; i < list.size(); i++) {
-        Log.i("list_index",list.get(i));
+            Log.i("list_index", list.get(i));
         }
     }
 
@@ -240,12 +279,13 @@ public class MainActivity extends BaseActivity {
         timePickerView.show();
     }
 
-    public void onClickMain(View xc) {
+    public void onClickMain(View xc) throws Exception {
 
-         new TestDialogFragment().show(getFragmentManager(),"testDialog");
+//        new TestDialogFragment().show(getFragmentManager(), "testDialog");
+
 
 //        startActivity(new Intent(this, Main2Activity.class));
-//        startActivity(new Intent(this, RecycleViewActivity.class));
+        startActivity(new Intent(this, RecycleViewActivity.class));
 //        bannerPoint.setSelctPosiiton(bannerPoint.getPosition() + 1);
 //        BannerPointView bannerPointView = getBannerPointView(this, 3);
 //        LinearLayout.LayoutParams l = new LinearLayout.LayoutParams(
@@ -425,35 +465,81 @@ public class MainActivity extends BaseActivity {
     }
 
     public void start(View view) {
-//        worldnoticeview.show();
-//        autoTextView.init(getWindowManager());
-//        autoTextView.startScroll();
+//        try {
+//            loadUrl();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+////        worldnoticeview.show();
+////        autoTextView.init(getWindowManager());
+////        autoTextView.startScroll();
+//
+//        Toast.makeText(MainActivity.this, "我是修补匠", Toast.LENGTH_SHORT).show();
+//        bannerPoint.setCount(3);
+//
+//        ChatGroupGlobalGiftModel chatGroupGlobalGiftModel = new ChatGroupGlobalGiftModel();
+//        chatGroupGlobalGiftModel.giftName = new Random().nextInt() % 2 == 0 ? "锥子大锥子" : "锥子";
+//        chatGroupGlobalGiftModel.receiverName = new Random().nextInt() % 2 == 0 ? "我是个" : "我是个asdasdasdasdasd";
+//        chatGroupGlobalGiftModel.senderName = new Random().nextInt() % 2 == 0 ? "我是第十个" : "我是个asdasdasdasdasd";
+//        chatGroupGlobalGiftModel.number = 1023;
+//        chatGroupGlobalGiftModel.httpGroupId = "11";
+//
+//        final long start = System.currentTimeMillis();
+//        globalnotice.showNotice(chatGroupGlobalGiftModel, new IChatGroupGlobalGiftCallback() {
+//            @Override
+//            public void onGiftEndPlay() {
+//                Log.i("onGiftEndPlay", "onGiftEndPlay" + (System.currentTimeMillis() - start));
+//            }
+//        });
 
-        Toast.makeText(MainActivity.this, "我是修补匠", Toast.LENGTH_SHORT).show();
-        bannerPoint.setCount(3);
-
-        ChatGroupGlobalGiftModel chatGroupGlobalGiftModel = new ChatGroupGlobalGiftModel();
-        chatGroupGlobalGiftModel.giftName = new Random().nextInt() % 2 == 0 ? "锥子大锥子" : "锥子";
-        chatGroupGlobalGiftModel.receiverName = new Random().nextInt() % 2 == 0 ? "我是个" : "我是个asdasdasdasdasd";
-        chatGroupGlobalGiftModel.senderName = new Random().nextInt() % 2 == 0 ? "我是第十个" : "我是个asdasdasdasdasd";
-        chatGroupGlobalGiftModel.number = 1023;
-        chatGroupGlobalGiftModel.httpGroupId = "11";
-
-        final long start = System.currentTimeMillis();
-        globalnotice.showNotice(chatGroupGlobalGiftModel, new IChatGroupGlobalGiftCallback() {
-            @Override
-            public void onGiftEndPlay() {
-                Log.i("onGiftEndPlay", "onGiftEndPlay" + (System.currentTimeMillis() - start));
-            }
-        });
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED){
+            getModel();
+        }else{
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},123);
+        }
     }
+
 
     private void getModel() {
+        File sdDir = Environment.getExternalStorageDirectory();//获取跟目录
+        File sdDir1 = Environment.getDataDirectory();
+        File sdDir2 = Environment.getRootDirectory();
+
+
+        Log.i("filepath","sdDir"+sdDir);
+        Log.i("filepath","sdDir1:"+sdDir1);
+        Log.i("filepath","sdDir2:"+sdDir2);
+
+        try {
+            logFiles(sdDir.getAbsolutePath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        new FileUtil().clearFile(getFilesDir()+"/yonglibao");
+    }
+
+    private void  logFiles(String path) throws IOException {
+
+        File f= new File(path);
+        if(f.isDirectory()){
+            if(!f.exists()){
+                f.mkdir();
+            }
+
+            String[] list = f.list();
+            for (String s:list){
+                Log.i("filePath",s+"");
+            }
+
+        }
+
 
     }
 
+
     public void stop(View view) {
-        autoTextView.stopScroll();
+//        autoTextView.stopScroll();
 //        startActivity(ScrollStartActivity.class);
 
         startActivity(new Intent(MainActivity.this, ScrollStartActivity.class)
@@ -493,6 +579,41 @@ public class MainActivity extends BaseActivity {
             }
             Toast.makeText(MainActivity.this, isShow ? "授权成功" : "授权失败", Toast.LENGTH_LONG).show();
 
+        }else{
+            boolean isShow = true;
+            for (int i = 0; grantResults.length > i; i++) {
+                if (i != PackageManager.PERMISSION_GRANTED) {
+                    isShow = false;
+                    break;
+                }
+            }
+            if(isShow){
+                getModel();
+            }
+            Toast.makeText(MainActivity.this, isShow ? "授权成功" : "授权失败", Toast.LENGTH_LONG).show();
         }
     }
+
+    private String loadUrl = "http://v.juhe.cn/historyWeather/province?key=6dcaaeea46f34369b8cdd0bda5462d6c";
+
+    private void loadUrl() throws IOException {
+        OkHttpClient okHttpClient = new OkHttpClient.Builder().build();
+        Request request = new Request.Builder()
+                .url(loadUrl)
+                .build();
+        Call call = okHttpClient.newCall(request);
+
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.i("response", "e：" + e.toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                Log.i("response", "r：" + response.body().string());
+            }
+        });
+    }
+
 }

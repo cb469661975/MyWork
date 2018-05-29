@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="115dp">
-<ImageView
-    android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:src="@drawable/chat_speak_waiting"
-    />
-    <View
-        android:layout_width="match_parent"
-        android:background="#aaa"
-        android:layout_height="@dimen/bibi_dimen_15"></View>
+    android:layout_width="115dp"
+    android:layout_height="115dp"
+    android:background="#aaa"
+    android:orientation="vertical">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:src="@drawable/chat_speak_waiting" />
 </LinearLayout>

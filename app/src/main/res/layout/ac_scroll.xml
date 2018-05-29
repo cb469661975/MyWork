@@ -113,6 +113,16 @@
             android:layout_height="wrap_content"
             android:onClick="onPlugin"
             android:text="Plugin" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onProxy"
+            android:text="Proxy" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onConstaint"
+            android:text="Constaint" />
 
     </LinearLayout>
 </ScrollView>

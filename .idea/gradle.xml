@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/glide2" />
             <option value="$PROJECT_DIR$/instantappTest" />
             <option value="$PROJECT_DIR$/pluginbase" />
             <option value="$PROJECT_DIR$/testplugin" />

@@ -1,16 +1,27 @@
 package com.example.cheng.myapplication
 
+import android.Manifest
 import android.animation.Animator
 import android.animation.ObjectAnimator
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.animation.LinearInterpolator
+import com.example.cheng.myapplication.cbus.CBus
 import com.example.cheng.myapplication.exentions.dp2px
+import com.example.cheng.myapplication.jsbridge.vassonic.HostSonicRuntime
 
 import com.example.cheng.myapplication.kotlin.KotlinActivity
 import com.example.cheng.myapplication.kotlin.TestFragmentTransActivity
 import com.example.cheng.myapplication.plugin.PluginActivity
+import com.example.cheng.myapplication.proxy.ProxyActivity
+import com.tencent.sonic.sdk.SonicConfig
+import com.tencent.sonic.sdk.SonicEngine
 import kotlinx.android.synthetic.main.ac_scroll.*
+import kotlin.reflect.KProperty
 
 
 /**
@@ -19,16 +30,80 @@ import kotlinx.android.synthetic.main.ac_scroll.*
 
 class ScrollStartActivity : BaseActivity() {
 
+    companion object {
+        const val MODE_DEFAULT = 0
+
+        const val MODE_SONIC = 1
+
+        const val MODE_SONIC_WITH_OFFLINE_CACHE = 2
+
+        private val PERMISSION_REQUEST_CODE_STORAGE = 123
+    }
+
+    var tvText: String by StrClass()
+
+    inner class StrClass {
+        operator fun getValue(scrollStartActivity: ScrollStartActivity, property: KProperty<*>): String {
+            Log.i("strClass", "你拿我的值干什么、")
+            return "getMyWord"
+        }
+
+        operator fun setValue(scrollStartActivity: ScrollStartActivity, property: KProperty<*>, s: String) {
+            tv_t1.text = s
+        }
+
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.ac_scroll)
 
+        if (hasPermission()) {
+            init()
+        } else {
+            requestPermission()
+        }
+
+    }
+
+    private fun hasPermission(): Boolean {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+        } else true
+    }
+
+    private fun requestPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestPermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), PERMISSION_REQUEST_CODE_STORAGE)
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        if (PERMISSION_REQUEST_CODE_STORAGE == requestCode) {
+            if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                requestPermission()
+            } else {
+                init()
+            }
+            return
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    private fun init() {
+        if (!SonicEngine.isGetInstanceAllowed()) {
+            SonicEngine.createInstance(HostSonicRuntime(application), SonicConfig.Builder().build())
+        }
     }
 
     var isShow = false
     var isAnim = false
     fun onClickAnimShow(v: View) {
+
+
         if (!isShow && !isAnim) {
+            tvText = "我也不知道"
             isShow = !isShow
             isAnim = true
 
@@ -52,6 +127,7 @@ class ScrollStartActivity : BaseActivity() {
                 }
             })
         } else {
+            tvText = "我就是知道"
             isShow = !isShow
             val animator = ObjectAnimator.ofFloat(tv_show, "translationY", 0f, -dp2px(50f).toFloat())
             animator.duration = 400
@@ -120,9 +196,21 @@ class ScrollStartActivity : BaseActivity() {
     }
 
     fun onWebJs(view: View) {
-        startActivity(TestWebActivity::class.java)
+        val intent = Intent(this, TestWebActivity::class.java)
+        intent.putExtra(TestWebActivity.PARAM_MODE, MODE_SONIC)
+//        startActivity(TestWebActivity::class.java)
+        startActivity(intent)
     }
+
     fun onPlugin(view: View) {
         startActivity(PluginActivity::class.java)
+    }
+
+    fun onProxy(view: View) {
+        startActivity(ProxyActivity::class.java)
+    }
+
+    fun onConstaint(view: View) {
+        startActivity(TestConstraintActivity::class.java)
     }
 }

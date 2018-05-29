@@ -123,16 +123,16 @@
         android:layout_height="10dp" />
 
 
-    <com.example.cheng.myapplication.ui.AutoScrollTextView
-        android:id="@+id/tv_text"
-        android:layout_width="150dp"
-        android:layout_height="10dp"
-        android:gravity="center"
-        android:inputType="text"
-        android:singleLine="true"
-        android:text="生日宴我吃饭了我真的吃饭了"
-        android:textColor="#000"
-        android:textSize="18sp" />
+    <!--<com.example.cheng.myapplication.ui.AutoScrollTextView-->
+        <!--android:id="@+id/tv_text"-->
+        <!--android:layout_width="150dp"-->
+        <!--android:layout_height="10dp"-->
+        <!--android:gravity="center"-->
+        <!--android:inputType="text"-->
+        <!--android:singleLine="true"-->
+        <!--android:text="生日宴我吃饭了我真的吃饭了"-->
+        <!--android:textColor="#000"-->
+        <!--android:textSize="18sp" />-->
 
     <com.example.cheng.myapplication.ui.WorldNoticeView
         android:id="@+id/worldnoticeview"

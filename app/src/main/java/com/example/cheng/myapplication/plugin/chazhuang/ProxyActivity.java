@@ -1,6 +1,7 @@
 package com.example.cheng.myapplication.plugin.chazhuang;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -9,24 +10,31 @@ import android.support.annotation.Nullable;
 import java.lang.reflect.Constructor;
 
 /**
- * Created by chengbiao on 2018/4/19.
+ * Created by Administrator on 2018/3/28.
  */
-public class ProxyActivity extends Activity {
 
-    private String mClassNames;
-    private com.example.cheng.myapplication.plugin.chazhuang.inter.ActivityLifeCycleInterface lifeCycleInterface;
-
+public class ProxyActivity  extends Activity {
+//    需要加载淘票票的  类名
+    private String className;
+    com.example.cheng.myapplication.plugin.chazhuang.inter.ActivityLifeCycleInterface payInterfaceActivity;
+    // com.dongnao.alvin.taopiaopiao.MainActivity
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mClassNames = getIntent().getStringExtra("className");
+    public void onCreate(@Nullable Bundle savedInstanceState  ) {
+        super.onCreate(savedInstanceState );
+        className = getIntent().getStringExtra("className");
+//        class
+
         try {
-            Class<?> aClass = getClassLoader().loadClass(mClassNames);
-            Constructor<?> constructor = aClass.getConstructor(new Class[]{});
-            Object instance = constructor.newInstance(new Object[]{});
-            lifeCycleInterface = (com.example.cheng.myapplication.plugin.chazhuang.inter.ActivityLifeCycleInterface) instance;
-            lifeCycleInterface.attach(this);
-            lifeCycleInterface.onCreate(new Bundle());
+            Class activityClass = getClassLoader().loadClass(className);
+            Constructor constructor = activityClass.getConstructor(new Class[]{});
+            Object instance= constructor.newInstance(new Object[]{});
+//          可以
+            payInterfaceActivity = (com.example.cheng.myapplication.plugin.chazhuang.inter.ActivityLifeCycleInterface) instance;
+
+            payInterfaceActivity.attach(this);
+            Bundle bundle = new Bundle();
+            payInterfaceActivity.onCreate(bundle);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -34,7 +42,19 @@ public class ProxyActivity extends Activity {
 
     @Override
     public void startActivity(Intent intent) {
-        super.startActivity(new Intent(this,ProxyActivity.class).putExtra("className", intent.getStringExtra("className")));
+        String className1=intent.getStringExtra("className");
+        Intent intent1 = new Intent(this, ProxyActivity.class);
+        intent1.putExtra("className", className1);
+        super.startActivity(intent1);
+    }
+
+    @Override
+    public ComponentName startService(Intent service) {
+//        String serviceName = service.getStringExtra("serviceName");
+//        Intent intent1 = new Intent(this, ProxyService.class);
+//        intent1.putExtra("serviceName", serviceName);
+//        return super.startService(intent1);
+        return super.startService(service);
     }
 
     @Override
@@ -47,21 +67,22 @@ public class ProxyActivity extends Activity {
         return PluginManager.getInstance().getResources();
     }
 
+
     @Override
     protected void onStart() {
         super.onStart();
-        lifeCycleInterface.onStart();
+        payInterfaceActivity.onStart();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        lifeCycleInterface.onDestroy();
+        payInterfaceActivity.onDestroy();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        lifeCycleInterface.onPause();
+        payInterfaceActivity.onPause();
     }
 }

@@ -20,10 +20,11 @@ public class DividerGridItemDecoration extends RecyclerView.ItemDecoration {
 
     private Drawable mDivider;
 
-    private int column_num = 2;
+    private int column_num = 1;
 
-    public DividerGridItemDecoration(Context context) {
+    public DividerGridItemDecoration(Context context, RecyclerView parent) {
         mDivider = context.getResources().getDrawable(R.drawable.shape_divider);
+        column_num = getSpanCount(parent);
     }
 
     @Override
@@ -50,8 +51,7 @@ public class DividerGridItemDecoration extends RecyclerView.ItemDecoration {
         for (int i = 0; i < childCount; i++) {
             final View child = parent.getChildAt(i);
 
-            final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
-                    .getLayoutParams();
+            final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child.getLayoutParams();
             final int top = child.getTop() - params.topMargin;
             final int bottom = child.getBottom() + params.bottomMargin;
             int left = 0;

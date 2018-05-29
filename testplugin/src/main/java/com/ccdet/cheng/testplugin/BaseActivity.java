@@ -28,6 +28,7 @@ public class BaseActivity extends Activity implements com.example.cheng.myapplic
 
     @Override
     public void setContentView(View view) {
+
         if (that != null) {
             that.setContentView(view);
         }else {
