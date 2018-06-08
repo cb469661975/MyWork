@@ -75,11 +75,11 @@ import rx.schedulers.Schedulers;
 
 public class MainActivity extends BaseActivity {
 
-
     LeansLayout leans_layout;
     TimePickerView timePickerView;
     private EditText et_cardNumber;
     private LivingHintView vvv;
+
     private WorldNoticeView worldnoticeview;
 
     private JSONObject jsonObject1;
@@ -284,8 +284,8 @@ public class MainActivity extends BaseActivity {
 //        new TestDialogFragment().show(getFragmentManager(), "testDialog");
 
 
-//        startActivity(new Intent(this, Main2Activity.class));
-        startActivity(new Intent(this, RecycleViewActivity.class));
+        startActivity(new Intent(this, Main2Activity.class));
+//        startActivity(new Intent(this, RecycleViewActivity.class));
 //        bannerPoint.setSelctPosiiton(bannerPoint.getPosition() + 1);
 //        BannerPointView bannerPointView = getBannerPointView(this, 3);
 //        LinearLayout.LayoutParams l = new LinearLayout.LayoutParams(

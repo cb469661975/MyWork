@@ -7,9 +7,13 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.transition.TransitionManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 /**
@@ -22,6 +26,7 @@ public class TestConstraintActivity extends Activity {
     ImageView iv_src;
     ImageView iv_bg;
     ConstraintLayout firstLayout;
+    EditText et_edits;
     private ConstraintSet first;
     private ConstraintSet second;
 //    private boolean isFirst;
@@ -39,6 +44,7 @@ public class TestConstraintActivity extends Activity {
         iv_src = findViewById(R.id.iv_src);
         iv_bg = findViewById(R.id.iv_bg);
         firstLayout = findViewById(R.id.constraintLayout);
+        et_edits = findViewById(R.id.et_edits);
 
         first=new ConstraintSet();
         second=new ConstraintSet();
@@ -64,6 +70,20 @@ public class TestConstraintActivity extends Activity {
                 }
             }
         });
+
+        showEditFilter();
+    }
+
+    private void showEditFilter() {
+        et_edits.setFilters(new InputFilter[]{new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                if (source.length() + dest.length() > 10) {
+                    Log.i("showEditFilter","out__"+source.length()+"=="+dest.length()+"==");
+                }
+                return null;
+            }
+        },new InputFilter.LengthFilter(10)});
 
     }
 }

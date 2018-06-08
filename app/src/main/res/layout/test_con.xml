@@ -53,5 +53,12 @@
         android:layout_height="wrap_content"
         android:background="#aaa" />
 
+    <EditText
+        android:id="@+id/et_edits"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/iv_src_3"
+        />
+
 
 </android.support.constraint.ConstraintLayout>
