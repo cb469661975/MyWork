@@ -284,7 +284,7 @@ public class MainActivity extends BaseActivity {
 //        new TestDialogFragment().show(getFragmentManager(), "testDialog");
 
 
-        startActivity(new Intent(this, Main2Activity.class));
+        startActivity(new Intent(this, Main3Activity.class));
 //        startActivity(new Intent(this, RecycleViewActivity.class));
 //        bannerPoint.setSelctPosiiton(bannerPoint.getPosition() + 1);
 //        BannerPointView bannerPointView = getBannerPointView(this, 3);

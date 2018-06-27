@@ -1,5 +1,6 @@
 package com.example.cheng.myapplication;
 
+import android.animation.ObjectAnimator;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.cheng.myapplication.ui.MyDialogFragment;
@@ -21,6 +23,7 @@ public class Main3Activity extends AppCompatActivity {
     CropImageView imageView;
     private Point3View pointView;
     private TextView tv_msg;
+    private Button button2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class Main3Activity extends AppCompatActivity {
 
         imageView = (CropImageView) findViewById(R.id.image);
         tv_msg = (TextView) findViewById(R.id.tv_msg);
+        button2 = (Button) findViewById(R.id.button2);
 int notifyNum=30;
         int acceptNum =20;
 //        tv_msg.setText(Html.fromHtml("交易明细：<font color= '#ff9b35'>日子好好的</font> \"+\"日期：17-01-06  20:00\")"));
@@ -75,7 +79,10 @@ int notifyNum=30;
 
     public void onClickMain(View xc) {
 //        startActivity(new Intent(this, Main2Activity.class));
-        showDialogFrag();
+//        showDialogFrag();
+        ObjectAnimator translationY = ObjectAnimator.ofFloat(button2, "translationY", -100f, 0f);
+        translationY.setDuration(1000);
+        translationY.start();
     }
 
     private void showDialogFrag() {

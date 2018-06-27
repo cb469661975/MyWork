@@ -521,4 +521,9 @@
     <color name="colorAccent">#f3f3f3</color>
     <color name="colorPrimary">#000</color>
     <color name="colorPrimaryDark">#f3f3f3</color>
+
+    <color name="YELLOW">#ffffcc44</color>
+    <color name="blue">#ff66aaff</color>
+
+
 </resources>

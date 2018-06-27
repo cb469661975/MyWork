@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MyApplication.iml" filepath="$PROJECT_DIR$/MyApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyWork.iml" filepath="$PROJECT_DIR$/MyWork.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/glide2/glide2.iml" filepath="$PROJECT_DIR$/glide2/glide2.iml" />
       <module fileurl="file://$PROJECT_DIR$/instantappTest/instantappTest.iml" filepath="$PROJECT_DIR$/instantappTest/instantappTest.iml" />

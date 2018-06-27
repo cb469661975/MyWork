@@ -72,6 +72,7 @@
         <activity android:name=".plugin.PluginActivity"></activity>
         <activity android:name=".plugin.chazhuang.ProxyActivity"></activity>
         <activity android:name=".proxy.ProxyActivity"></activity>
+        <activity android:name=".ui.PaintTestActivity"></activity>
     </application>
 
 </manifest>

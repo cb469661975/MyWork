@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -284,6 +285,24 @@ public class Main2Activity extends Activity implements ViewSwitcher.ViewFactory,
         }
     }
 
+    boolean isUp = false;
+
+    public void onClickAnim2(View imageView) {
+        int from = 0, to = -180;
+        if (!isUp) {
+            from = 0;
+            to = -180;
+        } else {
+            from = -180;
+            to = 0;
+        }
+        isUp = !isUp;
+        ObjectAnimator rotation = ObjectAnimator.ofFloat(imageView, "rotation", from, to);
+        rotation.setDuration(2000);
+        rotation.setInterpolator(new LinearInterpolator());
+        rotation.start();
+    }
+
     public void onClickAnim(View imageView) {
 
         ObjectAnimator ox = ObjectAnimator.ofFloat(imageView, "scaleX", 0.8f, 1.8f);
@@ -302,6 +321,7 @@ public class Main2Activity extends Activity implements ViewSwitcher.ViewFactory,
         marqueeText.startScroll();
 
     }
+
 
     @Override
     public View makeView() {

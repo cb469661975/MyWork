@@ -18,6 +18,7 @@ import com.example.cheng.myapplication.kotlin.KotlinActivity
 import com.example.cheng.myapplication.kotlin.TestFragmentTransActivity
 import com.example.cheng.myapplication.plugin.PluginActivity
 import com.example.cheng.myapplication.proxy.ProxyActivity
+import com.example.cheng.myapplication.ui.PaintTestActivity
 import com.tencent.sonic.sdk.SonicConfig
 import com.tencent.sonic.sdk.SonicEngine
 import kotlinx.android.synthetic.main.ac_scroll.*
@@ -212,5 +213,8 @@ class ScrollStartActivity : BaseActivity() {
 
     fun onConstaint(view: View) {
         startActivity(TestConstraintActivity::class.java)
+    }
+    fun onPaint(view: View) {
+        startActivity(PaintTestActivity::class.java)
     }
 }
