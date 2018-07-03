@@ -217,4 +217,7 @@ class ScrollStartActivity : BaseActivity() {
     fun onPaint(view: View) {
         startActivity(PaintTestActivity::class.java)
     }
+    fun onRecycleView(view: View) {
+        startActivity(RecycleViewActivity::class.java)
+    }
 }

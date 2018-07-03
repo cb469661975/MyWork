@@ -36,10 +36,11 @@ class YLBRefreshHeader : RelativeLayout, com.scwang.smartrefresh.layout.api.Refr
     lateinit var mSpinnerStyle: SpinnerStyle
 
     companion object {
-        var REFRESH_HEADER_PULLDOWN = "下拉可以刷新"
-        var REFRESH_HEADER_LOADING = "正在加载..."
+        var REFRESH_HEADER_PULLDOWN = "下拉刷新"
+        var REFRESH_HEADER_LOADING = "正在加载"
         var REFRESH_HEADER_FINISH = "刷新完成"
         var REFRESH_HEADER_FAILED = "刷新失败"
+        var REFRESH_HEADER_HAND_RELEASE = "松手刷新"
         const val mLateFinishTime: Int = 1000
         const val ANIMATION_DUR = 500
     }
@@ -70,22 +71,26 @@ class YLBRefreshHeader : RelativeLayout, com.scwang.smartrefresh.layout.api.Refr
     }
 
     private var msgTop = 0
-    override fun onPullingDown(percent: Float, offset: Int, headerHeight: Int, extendHeight: Int) {
+    override fun onPulling(percent: Float, offset: Int, headerHeight: Int, extendHeight: Int) {
         printLog("percent=$percent,offset=$offset,headerHeight=$headerHeight,extendHeight=$extendHeight")
         if (msgTop == 0) {
             msgTop = header_tv_msg.top
         }
-        if (offset - msgTop > dp2px(20)) {
+        if (percent>0.2f&&percent<0.9f) {
+            headerIv.visibility = View.VISIBLE
             var percentMove = (offset - msgTop).toFloat() / (headerHeight - msgTop).toFloat()
             headerIv.translationY = -dp2px(20) * percentMove
         }
     }
 
+    override fun onReleasing(percent: Float, offset: Int, height: Int, extendHeight: Int) {
+    }
+
+    override fun onReleased(refreshLayout: RefreshLayout?, height: Int, extendHeight: Int) {
+    }
+
     private var viewX: Float = 0f
     private var viewY: Float = 0f
-    override fun onReleasing(percent: Float, offset: Int, headerHeight: Int, extendHeight: Int) {
-
-    }
 
     fun setImageLoc(newLoc: ViewPoint) {
         headerIv.translationX = newLoc.x
@@ -96,7 +101,7 @@ class YLBRefreshHeader : RelativeLayout, com.scwang.smartrefresh.layout.api.Refr
         return this
     }
 
-    override fun getSpinnerStyle(): SpinnerStyle? {
+    override fun getSpinnerStyle(): SpinnerStyle {
         return mSpinnerStyle
     }
 
@@ -193,9 +198,9 @@ class YLBRefreshHeader : RelativeLayout, com.scwang.smartrefresh.layout.api.Refr
     }
 
     private fun resetAnim() {
+        headerIv.visibility= View.INVISIBLE
         val valueAnimator = ValueAnimator.ofInt(0, 10)
         valueAnimator.duration = mLateFinishTime.toLong()
-
         val aniSet = AnimatorSet()
         val objectAnimatorY = ObjectAnimator.ofFloat(headerIv, "translationY", headerIv.translationY, viewY)
         val objectAnimatorX = ObjectAnimator.ofFloat(headerIv, "translationX", headerIv.translationX, viewX)
@@ -203,6 +208,7 @@ class YLBRefreshHeader : RelativeLayout, com.scwang.smartrefresh.layout.api.Refr
         headerIv.translationY = 0f
         headerIv.rotation = -30f
         aniSet.duration = 100
+        aniSet.startDelay =ANIMATION_DUR.toLong()
         aniSet.playTogether(objectAnimatorX, objectAnimatorY)
     }
 
@@ -229,7 +235,7 @@ class YLBRefreshHeader : RelativeLayout, com.scwang.smartrefresh.layout.api.Refr
             }
             RefreshState.ReleaseToRefresh -> {
                 printLog("ReleaseToRefresh")
-                header_tv_msg.text = REFRESH_HEADER_PULLDOWN
+                header_tv_msg.text = REFRESH_HEADER_HAND_RELEASE
             }
             RefreshState.Loading -> {
                 printLog("Loading")
