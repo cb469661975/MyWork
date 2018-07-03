@@ -32,6 +32,9 @@ RotateLoadingLayout foot
  */
 
 class YLBRefreshHeader : RelativeLayout, com.scwang.smartrefresh.layout.api.RefreshHeader {
+//    override fun onPullingDown(percent: Float, offset: Int, headerHeight: Int, extendHeight: Int) {
+//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+//    }
 
     lateinit var mSpinnerStyle: SpinnerStyle
 
@@ -71,7 +74,7 @@ class YLBRefreshHeader : RelativeLayout, com.scwang.smartrefresh.layout.api.Refr
     }
 
     private var msgTop = 0
-    override fun onPulling(percent: Float, offset: Int, headerHeight: Int, extendHeight: Int) {
+    override fun onPullingDown(percent: Float, offset: Int, headerHeight: Int, extendHeight: Int) {
         printLog("percent=$percent,offset=$offset,headerHeight=$headerHeight,extendHeight=$extendHeight")
         if (msgTop == 0) {
             msgTop = header_tv_msg.top
@@ -86,8 +89,8 @@ class YLBRefreshHeader : RelativeLayout, com.scwang.smartrefresh.layout.api.Refr
     override fun onReleasing(percent: Float, offset: Int, height: Int, extendHeight: Int) {
     }
 
-    override fun onReleased(refreshLayout: RefreshLayout?, height: Int, extendHeight: Int) {
-    }
+//    override fun onReleased(refreshLayout: RefreshLayout?, height: Int, extendHeight: Int) {
+//    }
 
     private var viewX: Float = 0f
     private var viewY: Float = 0f

@@ -14,7 +14,7 @@ import com.example.cheng.myapplication.ui.YLBRefreshHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
-import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.Timer;
@@ -38,7 +38,7 @@ public class RecycleViewActivity extends Activity {
         recycleView = findViewById(R.id.recycleView);
         smartRefreshLayout = (SmartRefreshLayout) findViewById(R.id.smartRefreshLayout);
         recycleView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-        smartRefreshLayout.setEnableLoadMore(true);
+        smartRefreshLayout.setEnableLoadmore(true);
         smartRefreshLayout.setHeaderMaxDragRate(1.5f);
         smartRefreshLayout.setDisableContentWhenRefresh(true);
 
@@ -60,9 +60,9 @@ public class RecycleViewActivity extends Activity {
                 }, 3000);
             }
         });
-        smartRefreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
+        smartRefreshLayout.setOnLoadmoreListener(new OnLoadmoreListener() {
             @Override
-            public void onLoadMore(final RefreshLayout refreshlayout) {
+            public void onLoadmore(final RefreshLayout refreshlayout) {
 //                Toast.makeText(RecycleViewActivity.this, "onLoadmore", Toast.LENGTH_SHORT).show();
                 new Timer().schedule(new TimerTask() {
                     @Override
