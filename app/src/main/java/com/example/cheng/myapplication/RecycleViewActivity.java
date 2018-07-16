@@ -14,7 +14,8 @@ import com.example.cheng.myapplication.ui.YLBRefreshHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
-import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
+import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.Timer;
@@ -37,8 +38,8 @@ public class RecycleViewActivity extends Activity {
         setContentView(R.layout.recycle_layout);
         recycleView = findViewById(R.id.recycleView);
         smartRefreshLayout = (SmartRefreshLayout) findViewById(R.id.smartRefreshLayout);
-        recycleView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-        smartRefreshLayout.setEnableLoadmore(true);
+        recycleView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
+//        smartRefreshLayout.setEnableLoadMore(true);
         smartRefreshLayout.setHeaderMaxDragRate(1.5f);
         smartRefreshLayout.setDisableContentWhenRefresh(true);
 
@@ -60,18 +61,19 @@ public class RecycleViewActivity extends Activity {
                 }, 3000);
             }
         });
-        smartRefreshLayout.setOnLoadmoreListener(new OnLoadmoreListener() {
+        smartRefreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
-            public void onLoadmore(final RefreshLayout refreshlayout) {
+            public void onLoadMore(final RefreshLayout refreshlayout) {
 //                Toast.makeText(RecycleViewActivity.this, "onLoadmore", Toast.LENGTH_SHORT).show();
                 new Timer().schedule(new TimerTask() {
                     @Override
                     public void run() {
-                        refreshlayout.finishLoadmore();
+                        refreshlayout.finishLoadMore();
                     }
                 }, 3000);
             }
         });
+        smartRefreshLayout.setEnableAutoLoadMore(false);
 
         smartRefreshLayout.setHeaderHeight(80);
         smartRefreshLayout.setFooterHeight(60);
@@ -103,6 +105,6 @@ public class RecycleViewActivity extends Activity {
     private void initRefresh() {
         RefreshLayout refreshLayout = (RefreshLayout) findViewById(R.id.smartRefreshLayout);
         refreshLayout.setRefreshHeader(new YLBRefreshHeader(this).setSpinnerStyle(SpinnerStyle.Translate));
-        refreshLayout.setRefreshFooter(new YLBRefreshFooter(this).setmSpinnerStyle(SpinnerStyle.Translate));
+        refreshLayout.setRefreshFooter(new ClassicsFooter(this).setSpinnerStyle(SpinnerStyle.FixedFront));
     }
 }

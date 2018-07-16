@@ -26,16 +26,23 @@ import kotlinx.android.synthetic.main.ylb_loadmore_footer.view.*
 
 class YLBRefreshFooter : FrameLayout, com.scwang.smartrefresh.layout.api.RefreshFooter {
 
-    override fun setLoadmoreFinished(finished: Boolean): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onReleased(refreshLayout: RefreshLayout, height: Int, maxDragHeight: Int) {
     }
 
-//    override fun setNoMoreData(noMoreData: Boolean): Boolean {
-//        return false
-//    }
+    override fun onMoving(isDragging: Boolean, percent: Float, offset: Int, height: Int, maxDragHeight: Int) {
+        //        printLog("up,percent:" + percent + ",offset:" + offset + ",footerHeight:" + footerHeight + ",extendHeight:" + extendHeight);
+        if (percent <= 1) {
+            ll_refresh_bottom.visibility = View.VISIBLE
+            mFooterIv!!.scaleX = percent
+            mFooterIv!!.scaleY = percent
+            mFooterTvMsg!!.scaleX = percent
+            mFooterTvMsg!!.scaleY = percent
+        }
+    }
 
-//    override fun onReleased(refreshLayout: RefreshLayout?, height: Int, extendHeight: Int) {
-//    }
+    override fun setNoMoreData(noMoreData: Boolean): Boolean {
+        return false
+    }
 
     private var mFooterIv: ImageView? = null
     private var mFooterTvMsg: TextView? = null
@@ -80,21 +87,14 @@ class YLBRefreshFooter : FrameLayout, com.scwang.smartrefresh.layout.api.Refresh
         scale.duration = ANIMATION_DUR.toLong()
     }
 
-    override fun onPullingUp(percent: Float, offset: Int, footerHeight: Int, extendHeight: Int) {
-        //        printLog("up,percent:" + percent + ",offset:" + offset + ",footerHeight:" + footerHeight + ",extendHeight:" + extendHeight);
-        if (percent <= 1) {
-            ll_refresh_bottom.visibility = View.VISIBLE
-            mFooterIv!!.scaleX = percent
-            mFooterIv!!.scaleY = percent
-            mFooterTvMsg!!.scaleX = percent
-            mFooterTvMsg!!.scaleY = percent
-        }
-    }
+//    override fun onPullingUp(percent: Float, offset: Int, footerHeight: Int, extendHeight: Int) {
+//
+//    }
 
-    override fun onPullReleasing(percent: Float, offset: Int, footerHeight: Int, extendHeight: Int) {
-        //        printLog("release,percent:" + percent + ",offset:" + offset + ",footerHeight:" + footerHeight + ",extendHeight:" + extendHeight);
-
-    }
+//    override fun onPullReleasing(percent: Float, offset: Int, footerHeight: Int, extendHeight: Int) {
+//        //        printLog("release,percent:" + percent + ",offset:" + offset + ",footerHeight:" + footerHeight + ",extendHeight:" + extendHeight);
+//
+//    }
 
     override fun getView(): View {
         return this
@@ -134,7 +134,7 @@ class YLBRefreshFooter : FrameLayout, com.scwang.smartrefresh.layout.api.Refresh
                     loadGifToImageView(R.drawable.pull_up)
                 mFooterTvMsg!!.text = REFRESH_FOOTER_PULLUP
             }
-            RefreshState.PullToUpLoad -> {
+            RefreshState.PullUpToLoad -> {
                 mFooterTvMsg!!.text = REFRESH_FOOTER_PULLUP
 //                printLog("PullToUpLoad，oldState：$oldState,newState$newState")
             }

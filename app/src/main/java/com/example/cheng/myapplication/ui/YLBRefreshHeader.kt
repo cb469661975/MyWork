@@ -32,6 +32,20 @@ RotateLoadingLayout foot
  */
 
 class YLBRefreshHeader : RelativeLayout, com.scwang.smartrefresh.layout.api.RefreshHeader {
+    override fun onReleased(refreshLayout: RefreshLayout, height: Int, maxDragHeight: Int) {
+    }
+
+    override fun onMoving(isDragging: Boolean, percent: Float, offset: Int, height: Int, maxDragHeight: Int) {
+        printLog("percent=$percent,offset=$offset,headerHeight=$height,extendHeight=$maxDragHeight")
+        if (msgTop == 0) {
+            msgTop = header_tv_msg.top
+        }
+        if (percent > 0.2f && percent < 0.9f) {
+            headerIv.visibility = View.VISIBLE
+            var percentMove = (offset - msgTop).toFloat() / (height - msgTop).toFloat()
+            headerIv.translationY = -dp2px(20) * percentMove
+        }
+    }
 //    override fun onPullingDown(percent: Float, offset: Int, headerHeight: Int, extendHeight: Int) {
 //        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
 //    }
@@ -74,20 +88,20 @@ class YLBRefreshHeader : RelativeLayout, com.scwang.smartrefresh.layout.api.Refr
     }
 
     private var msgTop = 0
-    override fun onPullingDown(percent: Float, offset: Int, headerHeight: Int, extendHeight: Int) {
-        printLog("percent=$percent,offset=$offset,headerHeight=$headerHeight,extendHeight=$extendHeight")
-        if (msgTop == 0) {
-            msgTop = header_tv_msg.top
-        }
-        if (percent>0.2f&&percent<0.9f) {
-            headerIv.visibility = View.VISIBLE
-            var percentMove = (offset - msgTop).toFloat() / (headerHeight - msgTop).toFloat()
-            headerIv.translationY = -dp2px(20) * percentMove
-        }
-    }
+//    override fun onPullingDown(percent: Float, offset: Int, headerHeight: Int, extendHeight: Int) {
+//        printLog("percent=$percent,offset=$offset,headerHeight=$headerHeight,extendHeight=$extendHeight")
+//        if (msgTop == 0) {
+//            msgTop = header_tv_msg.top
+//        }
+//        if (percent>0.2f&&percent<0.9f) {
+//            headerIv.visibility = View.VISIBLE
+//            var percentMove = (offset - msgTop).toFloat() / (headerHeight - msgTop).toFloat()
+//            headerIv.translationY = -dp2px(20) * percentMove
+//        }
+//    }
 
-    override fun onReleasing(percent: Float, offset: Int, height: Int, extendHeight: Int) {
-    }
+//    override fun onReleasing(percent: Float, offset: Int, height: Int, extendHeight: Int) {
+//    }
 
 //    override fun onReleased(refreshLayout: RefreshLayout?, height: Int, extendHeight: Int) {
 //    }
@@ -201,7 +215,7 @@ class YLBRefreshHeader : RelativeLayout, com.scwang.smartrefresh.layout.api.Refr
     }
 
     private fun resetAnim() {
-        headerIv.visibility= View.INVISIBLE
+        headerIv.visibility = View.INVISIBLE
         val valueAnimator = ValueAnimator.ofInt(0, 10)
         valueAnimator.duration = mLateFinishTime.toLong()
         val aniSet = AnimatorSet()
@@ -211,7 +225,7 @@ class YLBRefreshHeader : RelativeLayout, com.scwang.smartrefresh.layout.api.Refr
         headerIv.translationY = 0f
         headerIv.rotation = -30f
         aniSet.duration = 100
-        aniSet.startDelay =ANIMATION_DUR.toLong()
+        aniSet.startDelay = ANIMATION_DUR.toLong()
         aniSet.playTogether(objectAnimatorX, objectAnimatorY)
     }
 
@@ -220,32 +234,33 @@ class YLBRefreshHeader : RelativeLayout, com.scwang.smartrefresh.layout.api.Refr
     }
 
     override fun onStateChanged(refreshLayout: RefreshLayout, oldState: RefreshState, newState: RefreshState) {
+        printLog("--------------------------->$oldState----->$newState")
         when (newState) {
             RefreshState.None -> {
                 loadGifToImageView(R.drawable.pull_down_pic)
                 header_tv_msg.text = REFRESH_HEADER_PULLDOWN
-                printLog("None")
+//                printLog("None")
             }
             RefreshState.PullDownToRefresh -> {
                 header_tv_msg.text = REFRESH_HEADER_PULLDOWN
-                printLog("PullDownToRefresh")
+//                printLog("PullDownToRefresh")
             }
             RefreshState.Refreshing -> {
-                printLog("Refreshing")
+//                printLog("Refreshing")
                 header_tv_msg.text = REFRESH_HEADER_LOADING
                 loadGifToImageView(R.drawable.pull_down)
                 startReleasedAnim()
             }
             RefreshState.ReleaseToRefresh -> {
-                printLog("ReleaseToRefresh")
+//                printLog("ReleaseToRefresh")
                 header_tv_msg.text = REFRESH_HEADER_HAND_RELEASE
             }
             RefreshState.Loading -> {
-                printLog("Loading")
+//                printLog("Loading")
                 header_tv_msg.text = REFRESH_HEADER_LOADING
             }
             RefreshState.LoadFinish -> {
-                printLog("LoadFinish")
+//                printLog("LoadFinish")
                 header_tv_msg.text = REFRESH_HEADER_FINISH
             }
         }

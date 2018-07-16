@@ -7,6 +7,9 @@
     android:orientation="vertical"
     tools:context="com.example.cheng.myapplication.MainActivity">
 
+    <com.example.cheng.myapplication.ui.RecordProgressView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <com.example.cheng.myapplication.ui.PointDraw3View
         android:layout_width="30dp"

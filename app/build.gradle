@@ -91,7 +91,7 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.1'
     implementation 'com.tencent.bugly:crashreport_upgrade:latest.release'
     //其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
-    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-10'
     implementation project(':pluginbase')
     implementation 'com.tencent.sonic:sdk:3.0.0'
     implementation files('libs/tbs_sdk_thirdapp_v3.6.0.1234_43608_sharewithdownload_withoutGame_obfs_20180510_111111.jar')
