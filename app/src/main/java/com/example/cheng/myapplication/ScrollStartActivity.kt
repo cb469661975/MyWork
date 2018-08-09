@@ -12,6 +12,7 @@ import android.view.View
 import android.view.animation.LinearInterpolator
 import com.example.cheng.myapplication.cbus.CBus
 import com.example.cheng.myapplication.exentions.dp2px
+import com.example.cheng.myapplication.fresco.FrescoActiviy
 import com.example.cheng.myapplication.jsbridge.vassonic.HostSonicRuntime
 
 import com.example.cheng.myapplication.kotlin.KotlinActivity
@@ -219,5 +220,8 @@ class ScrollStartActivity : BaseActivity() {
     }
     fun onRecycleView(view: View) {
         startActivity(RecycleViewActivity::class.java)
+    }
+    fun onFresco(view: View) {
+        startActivity(FrescoActiviy::class.java)
     }
 }

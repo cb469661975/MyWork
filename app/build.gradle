@@ -11,7 +11,7 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        ndk{
+        ndk {
             moduleName "NDKDEMO"         //生成的so名字
             ldLibs "log", "z", "m"       //链接时使用到的库
             abiFilters "armeabi", "armeabi-v7a", "x86"  //输出指定三种abi体系结构下的so库。目前可有可无
@@ -19,7 +19,7 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ moduleName : project.getName() ]
+                arguments = [moduleName: project.getName()]
             }
         }
     }
@@ -98,6 +98,8 @@ dependencies {
 
     compile 'com.alibaba:arouter-api:1.3.1'
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+    //facebook
+    implementation 'com.facebook.fresco:fresco:0.12.0'
 }
 
 def gitSha() {

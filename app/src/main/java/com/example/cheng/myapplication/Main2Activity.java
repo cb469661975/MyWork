@@ -47,6 +47,7 @@ import okhttp3.OkHttpClient;
 import rx.Observable;
 import rx.Observer;
 import rx.Subscriber;
+import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.schedulers.Schedulers;
@@ -210,18 +211,18 @@ public class Main2Activity extends Activity implements ViewSwitcher.ViewFactory,
 //            tv_result.setText(s);
                 Log.i("HttpUtil", Thread.currentThread().getId() + "====");
 
-                Observable.create(new Observable.OnSubscribe<String>() {
+                Subscription subscribe = Observable.create(new Observable.OnSubscribe<String>() {
                     @Override
                     public void call(Subscriber<? super String> subscriber) {
                         Log.i("HttpUtil", Thread.currentThread().getId() + "==CA==");
                     }
                 }).observeOn(Schedulers.io())
                         .subscribeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<String>() {
-                    @Override
-                    public void call(String s) {
-                        Log.i("HttpUtil", Thread.currentThread().getId() + "==C2=");
-                    }
-                });
+                            @Override
+                            public void call(String s) {
+                                Log.i("HttpUtil", Thread.currentThread().getId() + "==C2=");
+                            }
+                        });
             }
 
             @Override

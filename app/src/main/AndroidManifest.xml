@@ -73,6 +73,7 @@
         <activity android:name=".plugin.chazhuang.ProxyActivity"></activity>
         <activity android:name=".proxy.ProxyActivity"></activity>
         <activity android:name=".ui.PaintTestActivity"></activity>
+        <activity android:name=".fresco.FrescoActiviy" />
     </application>
 
 </manifest>

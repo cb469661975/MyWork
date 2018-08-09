@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.example.cheng.myapplication.jsbridge.vassonic.HostSonicRuntime;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.tencent.sonic.sdk.SonicConfig;
 import com.tencent.sonic.sdk.SonicEngine;
 
@@ -22,5 +23,6 @@ public class MyApplication extends Application {
         if (!SonicEngine.isGetInstanceAllowed()) {
             SonicEngine.createInstance(new HostSonicRuntime(this), new SonicConfig.Builder().build());
         }
+        Fresco.initialize(this);
     }
 }
