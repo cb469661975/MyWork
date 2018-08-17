@@ -47,4 +47,27 @@
     </declare-styleable>
 
     <style name="Widget.GifView" parent="@android:style/Widget" />
+    
+    <style name="fresco_theme">
+        <item name="actualImageScaleType" >focusCrop</item>
+        <item name="backgroundImage">focusCrop</item>
+        <item name="fadeDuration">300</item>
+
+        <!--fresco:backgroundImage="@color/blue"-->
+        <!--fresco:fadeDuration="300"-->
+        <!--fresco:placeholderImageScaleType="fitCenter"-->
+        <!--fresco:pressedStateOverlayImage="@color/colorAccent"-->
+        <!--fresco:progressBarAutoRotateInterval="1000"-->
+        <!--fresco:progressBarImage="@drawable/icon_coupon_arrow_down"-->
+        <!--fresco:progressBarImageScaleType="centerInside"-->
+        <!--fresco:retryImage="@drawable/icon_coupon_arrow_down"-->
+        <!--fresco:retryImageScaleType="centerCrop"-->
+        <!--fresco:roundAsCircle="false"-->
+        <!--fresco:roundBottomLeft="false"-->
+        <!--fresco:roundBottomRight="true"-->
+        <!--fresco:roundTopLeft="true"-->
+        <!--fresco:roundTopRight="false"-->
+        <!--fresco:roundedCornerRadius="1dp"-->
+        <!--fresco:roundingBorderWidth="2dp"-->
+    </style>
 </resources>

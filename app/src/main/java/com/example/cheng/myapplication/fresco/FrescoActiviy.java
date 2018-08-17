@@ -14,12 +14,15 @@ import com.facebook.drawee.view.SimpleDraweeView;
 public class FrescoActiviy extends BaseActivity {
 
     private SimpleDraweeView draweeView;
+    String imageUrl = "http://juheimg.oss-cn-hangzhou.aliyuncs.com/joke/201505/26/222D8C3F1F4D79EA5CC40ACD1303DF0E.jpg";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_frasco);
         draweeView = findViewById(R.id.draweeView);
-        draweeView.setImageURI(Uri.parse("res://"+R.drawable.global_jump_to_living_normal));
+        draweeView.setImageURI(Uri.parse(imageUrl));
+
 
     }
 }
