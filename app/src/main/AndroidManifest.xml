@@ -65,7 +65,7 @@
         <activity android:name=".TabLayoutActivity"></activity>
         <activity android:name=".CoordActivity"></activity>
         <activity android:name=".kotlin.FragmentAcTest"></activity>
-        <activity android:name=".kotlin.TestFragmentTransActivity"></activity>
+        <activity android:name=".kotlin.TestFragmentTransActivity"/>
         <activity android:name=".TestViewTouchActivity"></activity>
         <activity android:name=".TestNestScrollActivity"></activity>
         <activity android:name=".TestWebActivity"></activity>
@@ -74,6 +74,7 @@
         <activity android:name=".proxy.ProxyActivity"></activity>
         <activity android:name=".ui.PaintTestActivity"></activity>
         <activity android:name=".fresco.FrescoActiviy" />
+        <activity android:name=".TestDataBindingActivity" />
     </application>
 
 </manifest>

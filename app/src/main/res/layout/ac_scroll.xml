@@ -142,6 +142,11 @@
             android:layout_height="wrap_content"
             android:onClick="onConstaint"
             android:text="Constaint" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onDatabinding"
+            android:text="databinding" />
 
     </LinearLayout>
 </ScrollView>

@@ -11,7 +11,7 @@ interface key {
 
     abstract fun getKeyBytes(): ByteArray
 
-    abstract override fun equals(o: Any?): Boolean
+//    abstract override fun equals(oss: Any?): Boolean
 
     abstract override fun hashCode(): Int
 }

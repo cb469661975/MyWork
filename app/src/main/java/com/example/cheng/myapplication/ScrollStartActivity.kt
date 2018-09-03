@@ -224,4 +224,7 @@ class ScrollStartActivity : BaseActivity() {
     fun onFresco(view: View) {
         startActivity(FrescoActiviy::class.java)
     }
+    fun onDatabinding(view: View) {
+        startActivity(TestDataBindingActivity::class.java)
+    }
 }

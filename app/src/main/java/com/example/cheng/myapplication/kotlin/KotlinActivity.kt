@@ -29,6 +29,11 @@ class KotlinActivity : Activity(), View.OnClickListener {
 //        ChildMoldelA().checkoutModel(SealedModel.ModelB)
 //        ChildMoldelA().checkoutModel(SealedModel.ModelD)
         showTest()
+        var user =TestUser()
+
+        user.name ="xiaozhang"
+        user.name ="xiaoLi"
+
     }
 
     private fun showTest() {

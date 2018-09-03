@@ -1,6 +1,10 @@
 package com.example.cheng.myapplication.kotlin;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
@@ -11,6 +15,7 @@ import com.example.cheng.myapplication.fragment.TestFragment1;
 import com.example.cheng.myapplication.fragment.model.Functions;
 import com.example.cheng.myapplication.manager.ITimeCount;
 import com.example.cheng.myapplication.manager.TimeCountManager;
+import com.example.cheng.myapplication.viewmodel.MyViewModel;
 
 /**
  * Created by chengbiao on 2018/2/9.
@@ -25,6 +30,32 @@ public class TestFragmentTransActivity extends BaseActivity implements ITimeCoun
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fg_test_trans);
         addFragment();
+
+        MyViewModel viewModel = ViewModelProviders.of(this).get(MyViewModel.class);
+
+        viewModel.getSelected().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                //这里是收不到的。
+                Log.i("TestFragment2","activigty_I get this-->"+s);
+            }
+        });
+
+
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        outState.putString("TestFragment2","TestFragment2--get");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if(savedInstanceState!=null){
+            Log.i("TestFragment2","---?"+savedInstanceState.getString("TestFragment2"));
+        }
     }
 
     public void setFragment() {
