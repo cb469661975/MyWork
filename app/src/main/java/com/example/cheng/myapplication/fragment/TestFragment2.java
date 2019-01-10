@@ -1,7 +1,5 @@
 package com.example.cheng.myapplication.fragment;
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.cheng.myapplication.BaseFragment;
-import com.example.cheng.myapplication.viewmodel.MyViewModel;
 
 /**
  * Created by biao.cheng on 2017/11/16.
@@ -34,14 +30,14 @@ public class TestFragment2 extends BasePageFragment {
         tv.setText(this.getClass().getSimpleName());
         tv.setTextSize(30);
 
-        MyViewModel viewModel = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
-
-        viewModel.getSelected().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                Log.i("TestFragment2","I get this-->"+s);
-            }
-        });
+//        MyViewModel viewModel = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
+//
+//        viewModel.getSelected().observe(this, new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                Log.i("TestFragment2","I get this-->"+s);
+//            }
+//        });
 
 
 

@@ -1,6 +1,5 @@
 package com.example.cheng.myapplication.fragment;
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,7 +14,6 @@ import com.example.cheng.myapplication.BaseFragment;
 import com.example.cheng.myapplication.fragment.model.Functions;
 import com.example.cheng.myapplication.kotlin.TestFragmentTransActivity;
 import com.example.cheng.myapplication.util.OnDoubleClickListener;
-import com.example.cheng.myapplication.viewmodel.MyViewModel;
 
 /**
  * Created by biao.cheng on 2017/11/16.
@@ -46,14 +44,14 @@ public class TestFragment1 extends BasePageFragment {
         this.functions = functions;
     }
 
-    private MyViewModel viewModel;
+//    private MyViewModel viewModel;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         TextView tv = new TextView(getActivity());
         tv.setText(this.getClass().getSimpleName());
         tv.setTextSize(30);
-        viewModel= ViewModelProviders.of(getActivity()).get(MyViewModel.class);
+//        viewModel= ViewModelProviders.of(getActivity()).get(MyViewModel.class);
 
 
         tv.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +60,7 @@ public class TestFragment1 extends BasePageFragment {
                 Log.i("Fun_NO_PARAMS_RESULT", "click-Fun_NO_PARAMS_RESULT");
 //                functions.invokeFunction(Fun_NO_PARAMS_RESULT);
 //                callBack.callTest();
-                viewModel.select("test__1");
+//                viewModel.select("test__1");
             }
         });
 

@@ -29,7 +29,6 @@ public class TestSocket {
     }
 
     public void testHttps(Context context) throws Exception {
-
         SSLContext tls = SSLContext.getInstance("TLS");
         TrustManagerFactory x509 = TrustManagerFactory.getInstance("X509");
         //证书
@@ -43,10 +42,8 @@ public class TestSocket {
         doHttps(socket);
     }
     static void doHttps(Socket socket) throws Exception {
-
         //接受数据的输入流
         final BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
         //发送数据 输出流
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
         new Thread() {
@@ -64,7 +61,6 @@ public class TestSocket {
                 }
             }
         }.start();
-
         bw.write("GET / HTTP/1.1\r\n");
         bw.write("Host: www.12306.cn\r\n\r\n");
         bw.flush();
@@ -72,10 +68,8 @@ public class TestSocket {
 
     private static void doHttps() throws IOException {
         Socket socket = SSLSocketFactory.getDefault().createSocket("www.baidu.com", 443);
-
         final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-
             new Thread(new Runnable() {
                 @Override
                 public void run() {

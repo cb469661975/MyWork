@@ -43,7 +43,6 @@ public class PluginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plugin);
         PluginManager.getInstance().setContext(this);
-
     }
 
     public void loadPlugin(View view) {

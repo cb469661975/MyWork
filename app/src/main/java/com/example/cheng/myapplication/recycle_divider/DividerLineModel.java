@@ -1,5 +1,7 @@
 package com.example.cheng.myapplication.recycle_divider;
 
+import android.graphics.drawable.Drawable;
+
 /**
  * Created by chengbiao on 2017/12/20.
  */

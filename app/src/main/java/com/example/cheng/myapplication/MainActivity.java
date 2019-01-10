@@ -71,6 +71,7 @@ import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
+import rx.functions.Func0;
 import rx.schedulers.Schedulers;
 
 public class MainActivity extends BaseActivity {
@@ -157,7 +158,37 @@ public class MainActivity extends BaseActivity {
             e.printStackTrace();
         }
         showLinkedHashMap();
+
+        testRx1();
     }
+
+    private void testRx1() {
+
+        Observable.defer(new Func0<Observable<String>>() {
+            @Override
+            public Observable<String> call() {
+                return Observable.just("哈哈","嘿嘿","呵呵");
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+           .subscribe(new Observer<String>() {
+               @Override
+               public void onCompleted() {
+                   Log.i("ccdet","onCompleted");
+               }
+
+               @Override
+               public void onError(Throwable e) {
+                   Log.i("ccdet","onError->"+e.toString());
+               }
+
+               @Override
+               public void onNext(String t) {
+                   Log.i("ccdet","onNext->"+t);
+               }
+           })  ;
+
+    }
+
     int size =12;
     private void showLinkedHashMap() {
         LinkedHashMap<String,String> linkedHashMap = new LinkedHashMap<>(12,0.75f,false);
@@ -171,10 +202,6 @@ public class MainActivity extends BaseActivity {
             String next = iterator.next();
             Log.i("showLinkedHashMap",next);
         }
-
-
-
-
     }
 
     List<String> list = new ArrayList<>();

@@ -14,10 +14,8 @@ import java.lang.reflect.Constructor;
  */
 
 public class ProxyActivity  extends Activity {
-//    需要加载淘票票的  类名
     private String className;
     com.example.cheng.myapplication.plugin.chazhuang.inter.ActivityLifeCycleInterface payInterfaceActivity;
-    // com.dongnao.alvin.taopiaopiao.MainActivity
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState  ) {
         super.onCreate(savedInstanceState );
